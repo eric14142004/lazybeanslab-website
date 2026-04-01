@@ -1,4 +1,4 @@
 title: Smart Home Consultant
-baseurl: "/smart-home-site"   # repository 名稱
+baseurl: "/lazybeanslab-website"   # repository 名稱
 url: "http://localhost:4000"  # 本地測試用
 markdown: kramdown
