@@ -1,4 +1,4 @@
 title: Smart Home Consultant
-baseurl: ""   # 專案頁面放在根目錄，保持空白
+baseurl: "/smart-home-site"   # repository 名稱
 url: "http://localhost:4000"  # 本地測試用
 markdown: kramdown
