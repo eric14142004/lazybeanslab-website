@@ -18,6 +18,9 @@ yarn-error.log
 package-lock.json
 yarn.lock
 
+# next build output
+.next/
+
 # Jekyll build 產生的目錄
 _site/
 .sass-cache/
