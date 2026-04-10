@@ -36,3 +36,18 @@ _site/
 
 # 忽略自訂資料夾
 assets/temp/
+
+# dependencies
+node_modules/
+
+# next build output
+.next/
+out/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env
+.env*.local
