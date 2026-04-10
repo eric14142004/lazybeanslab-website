@@ -1,8 +1,8 @@
 export default function ServiceCard({ service }) {
-  return (
-      <div className="border rounded p-4 shadow hover:shadow-lg transition">
-        <h2 className="font-bold">{service.name}</h2>
-        <p>{service.description}</p>
-      </div>
-  );
+    return (
+        <div className="p-6 border rounded-xl hover:shadow-lg transition bg-white">
+            <h3 className="text-lg font-semibold mb-2">{service.name}</h3>
+            <p className="text-gray-600 text-sm">{service.description}</p>
+        </div>
+    );
 }
