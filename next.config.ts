@@ -1,18 +1,15 @@
 import type { NextConfig } from "next";
-
-const repo = "lazybeanslab-website";
+import { SITE_CONFIG } from "./src/config/site";
 
 const nextConfig = {
     output: "export",
-    basePath: `/${repo}`,
-    assetPrefix: `/${repo}/`,
+    basePath: SITE_CONFIG.basePath,
+    assetPrefix: SITE_CONFIG.basePath,
     images: {
         unoptimized: true,
     },
 };
+
 export default nextConfig;
-
-
-
 
 
