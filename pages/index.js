@@ -4,6 +4,7 @@ import { services } from '../data/services';
 import { projects } from '../data/projects';
 import ServiceCard from '../components/ServiceCard';
 import ProjectCard from '../components/ProjectCard';
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -21,12 +22,12 @@ export default function Home() {
                         We design reliable, scalable smart home systems tailored to your space.
                     </p>
                     <div className="flex justify-center gap-4">
-                        <a href="/contact" className="bg-black text-white px-6 py-3 rounded-md">
+                        <Link href="/contact" className="bg-black text-white px-6 py-3 rounded-md">
                             Get Started
-                        </a>
-                        <a href="/projects" className="border px-6 py-3 rounded-md">
+                        </Link>
+                        <Link href="/projects" className="border px-6 py-3 rounded-md">
                             View Projects
-                        </a>
+                        </Link>
                     </div>
                 </section>
 
@@ -51,9 +52,9 @@ export default function Home() {
                     <h2 className="text-2xl font-semibold mb-4">
                         Planning a Smart Home?
                     </h2>
-                    <a href="/contact" className="bg-black text-white px-6 py-3 rounded-md">
+                    <Link href="/contact" className="bg-black text-white px-6 py-3 rounded-md">
                         Contact Us
-                    </a>
+                    </Link>
                 </section>
 
             </main>
