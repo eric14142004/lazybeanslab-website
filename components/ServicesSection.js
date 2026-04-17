@@ -4,7 +4,6 @@ import { SITE_CONFIG } from '../src/config/site';
 
 export default function ServicesSection() {
     const [hoveredId, setHoveredId] = useState(null);
-
     return (
         <section className="w-full py-16 px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-max">
