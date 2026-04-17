@@ -1,17 +1,14 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { services } from '../../data/services';
-import ServiceCard from '../../components/ServiceCard';
+import ServicesSection from '../../components/ServicesSection';
 
 export default function Services() {
     return (
         <>
             <Header />
-            <main className="container mx-auto p-4">
-                <h1 className="text-3xl font-bold mb-4">Our Services</h1>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {services.map(s => <ServiceCard key={s.id} service={s} />)}
-                </div>
+            <main className="container mx-auto">
+                <h1 className="text-3xl font-bold px-6 pt-6">Our Services</h1>
+                <ServicesSection />
             </main>
             <Footer />
         </>

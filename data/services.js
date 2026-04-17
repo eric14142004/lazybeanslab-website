@@ -8,16 +8,25 @@ export const services = [
   {
     id: 'consultation',
     name: 'Smart Home Consultation',
-    description: 'Planning, device selection, system design'
+    description: 'Planning, device selection, system design',
+    images: [
+      '/images/services/consultation-1.jpg',
+    ]
   },
   {
     id: 'installation',
     name: 'Device Setup',
-    description: 'Smart locks, lights, sensors, cameras, plugs setup'
+    description: 'Smart locks, lights, sensors, cameras, plugs setup',
+    images: [
+      '/images/services/installation-1.jpg',
+    ]
   },
   {
     id: 'automation',
     name: 'Automation',
-    description: 'Scenes, routines, device integration'
+    description: 'Scenes, routines, device integration',
+    images: [
+      '/images/services/automation-1.jpg',
+    ]
   }
 ];
