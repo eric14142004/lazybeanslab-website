@@ -254,18 +254,13 @@ export default function ServicesSection() {
     return (
         <section className="max-w-6xl mx-auto w-full px-6 py-4 md:py-6">
             <div className="mb-4 rounded-[1.5rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] px-5 py-4 shadow-[0_14px_40px_-34px_rgba(24,28,33,0.45)] md:px-6 md:py-4">
-                <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-8">
-                    <div>
-                        <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">
-                            Find the right service for your home.
-                        </h1>
-                        <p className="mt-1.5 max-w-2xl text-sm text-stone-700 md:text-[0.98rem]">
-                            Compare your options, then preview each step before you book.
-                        </p>
-                    </div>
-                    <Link href="/contact" className="inline-flex items-center text-sm font-semibold text-stone-900 underline decoration-stone-400 underline-offset-4 transition hover:decoration-stone-900">
-                        Need help choosing?
-                    </Link>
+                <div>
+                    <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">
+                        Find the right service for your home.
+                    </h1>
+                    <p className="mt-1.5 max-w-2xl text-sm text-stone-700 md:text-[0.98rem]">
+                        Compare your options, then preview each step before you book.
+                    </p>
                 </div>
             </div>
 

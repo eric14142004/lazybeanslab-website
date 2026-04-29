@@ -54,9 +54,6 @@ export default function Ecosystems() {
                             See the brands, ecosystems, and protocols we support before you buy.
                         </p>
                         <div className="mt-7 flex flex-wrap gap-3">
-                            <Link href="/contact" className="rounded-md bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Get Free Cost Estimate
-                            </Link>
                             <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
                                 View Services
                             </Link>
@@ -153,7 +150,7 @@ export default function Ecosystems() {
                         </p>
                         <div className="mt-7 flex flex-wrap justify-center gap-3">
                             <Link href="/contact" className="rounded-md bg-stone-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Ask About Compatibility
+                                Get Free Cost Estimate
                             </Link>
                             <Link href="/about" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
                                 About Us

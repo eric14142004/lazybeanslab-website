@@ -1,7 +1,8 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import { SITE_CONFIG } from '../src/config/site';
 
 export default function Contact() {
@@ -9,7 +10,7 @@ export default function Contact() {
         name: '',
         email: '',
         phone: '',
-        location: '',
+        area: '',
         homeType: '',
         budget: '',
         timeline: '',
@@ -18,6 +19,11 @@ export default function Contact() {
     const [formError, setFormError] = useState('');
     const [formSuccess, setFormSuccess] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        // Initialize EmailJS
+        emailjs.init(SITE_CONFIG.emailjs.publicKey);
+    }, []);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -33,8 +39,8 @@ export default function Contact() {
             return;
         }
 
-        if (!SITE_CONFIG.contactFormEndpoint) {
-            setFormError('Form endpoint not configured yet. Add contactFormEndpoint in src/config/site.ts first.');
+        if (!SITE_CONFIG.emailjs.serviceId || !SITE_CONFIG.emailjs.templateId) {
+            setFormError('Email service not configured yet. Update src/config/site.ts with EmailJS credentials.');
             return;
         }
 
@@ -42,35 +48,35 @@ export default function Contact() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch(SITE_CONFIG.contactFormEndpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                body: JSON.stringify({
-                    subject: `Lead Inquiry - ${formData.name}`,
-                    source: 'lazybeanslab-website',
-                    ...formData,
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error('Request failed');
-            }
+            await emailjs.send(
+                SITE_CONFIG.emailjs.serviceId,
+                SITE_CONFIG.emailjs.templateId,
+                {
+                    to_email: 'lazysmarthome29@gmail.com',
+                    from_name: formData.name,
+                    from_email: formData.email || 'no-email@provided.com',
+                    phone: formData.phone,
+                    area: formData.area,
+                    homeType: formData.homeType,
+                    budget: formData.budget,
+                    timeline: formData.timeline,
+                    painPoints: formData.painPoints,
+                }
+            );
 
             setFormSuccess('Thanks. Your project brief was sent successfully. We will get back to you soon.');
             setFormData({
                 name: '',
                 email: '',
                 phone: '',
-                location: '',
+                area: '',
                 homeType: '',
                 budget: '',
                 timeline: '',
                 painPoints: '',
             });
-        } catch {
+        } catch (error) {
+            console.error('EmailJS error:', error);
             setFormError('Unable to send right now. Please try again or use email/phone above.');
         } finally {
             setIsSubmitting(false);
@@ -83,18 +89,15 @@ export default function Contact() {
             <main className="site-bg pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-10">
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_26px_80px_-46px_rgba(24,28,33,0.55)] md:p-10">
-                        <p className="inline-flex rounded-full border border-stone-300 bg-white px-4 py-1 text-xs tracking-[0.14em] text-stone-700">
-                            CONTACT
-                        </p>
-                        <h1 className="display-font mt-5 text-4xl leading-tight text-stone-900 md:text-5xl">
-                            Let&apos;s map your smart home plan.
+                        <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl">
+                            Get a free cost estimate.
                         </h1>
-                        <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">
-                            Share your home type, key pain points, and budget range. We&apos;ll suggest a realistic roadmap and implementation sequence.
+                        <p className="mt-4 max-w-2xl text-stone-700 md:text-lg">
+                            Fill in the brief below. We reply within 1–2 business days with scope and estimated cost.
                         </p>
                         <div className="mt-7 flex flex-wrap gap-3">
                             <Link href="#project-brief" className="rounded-md bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Start Project Brief
+                                Get My Estimate
                             </Link>
                             <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
                                 View Services
@@ -103,49 +106,13 @@ export default function Contact() {
                     </div>
                 </section>
 
-                <section className="max-w-6xl mx-auto px-6 py-8">
-                    <div className="grid gap-6 md:grid-cols-3">
-                        <article className="rounded-2xl border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)]">
-                            <p className="text-xs tracking-[0.12em] text-stone-500">EMAIL</p>
-                            <a className="mt-2 block text-lg font-semibold text-stone-900 underline-offset-4 hover:underline" href="mailto:lazysmarthome29@gmail.com">
-                                lazysmarthome29@gmail.com
-                            </a>
-                            <p className="mt-3 text-sm text-stone-700">Best for project details, floor plans, and reference photos.</p>
-                        </article>
-
-                        <article className="rounded-2xl border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)]">
-                            <p className="text-xs tracking-[0.12em] text-stone-500">PHONE</p>
-                            <a className="mt-2 block text-lg font-semibold text-stone-900 underline-offset-4 hover:underline" href="tel:+17789988857">
-                                +1 778 998 8857
-                            </a>
-                            <p className="mt-3 text-sm text-stone-700">Best for quick consultation and scheduling discussion calls.</p>
-                        </article>
-
-                        <article className="rounded-2xl border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)]">
-                            <p className="text-xs tracking-[0.12em] text-stone-500">YOUTUBE</p>
-                            <a
-                                className="mt-2 block text-lg font-semibold text-stone-900 underline-offset-4 hover:underline"
-                                href="https://www.youtube.com/channel/UCqAmwbBTyUhrV3g_w7PW9Gg"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Lazy Beans Smart Home
-                            </a>
-                            <p className="mt-3 text-sm text-stone-700">See walkthroughs and practical smart home implementation examples.</p>
-                        </article>
-                    </div>
-                </section>
-
                 <section id="project-brief" className="max-w-6xl mx-auto px-6 py-4 scroll-mt-32">
                     <div className="rounded-3xl border border-stone-300 bg-white p-6 shadow-[0_18px_40px_-28px_rgba(24,28,33,0.9)] md:p-8">
-                        <div className="flex flex-wrap items-end justify-between gap-4">
-                            <h2 className="display-font text-3xl text-stone-900">Start Your Project Brief</h2>
-                            <p className="text-sm text-stone-600">Fields marked with * are required.</p>
-                        </div>
+                        <h2 className="display-font text-3xl text-stone-900">What do you need help with?</h2>
 
                         <form className="mt-6 grid gap-5 md:grid-cols-2" onSubmit={handleSubmit}>
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
-                                Full Name *
+                                Name *
                                 <input
                                     name="name"
                                     value={formData.name}
@@ -179,14 +146,17 @@ export default function Contact() {
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
-                                Location / City
-                                <input
-                                    name="location"
-                                    value={formData.location}
+                                Service Area
+                                <select
+                                    name="area"
+                                    value={formData.area}
                                     onChange={handleChange}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
-                                    placeholder="City, region"
-                                />
+                                >
+                                    <option value="">Select your area</option>
+                                    <option value="Greater Vancouver">Greater Vancouver</option>
+                                    <option value="Outside Greater Vancouver">Outside Greater Vancouver (Remote)</option>
+                                </select>
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
@@ -209,7 +179,9 @@ export default function Contact() {
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
                                 >
                                     <option value="">Select a range</option>
-                                    <option value="Under $2,000">Under $2,000</option>
+                                    <option value="Under $100">Under $100</option>
+                                    <option value="$100 - $500">$100 - $500</option>
+                                    <option value="$500 - $2,000">$500 - $2,000</option>
                                     <option value="$2,000 - $5,000">$2,000 - $5,000</option>
                                     <option value="$5,000 - $10,000">$5,000 - $10,000</option>
                                     <option value="$10,000+">$10,000+</option>
@@ -257,31 +229,33 @@ export default function Contact() {
                                     disabled={isSubmitting}
                                     className="rounded-md bg-stone-900 px-6 py-3 font-semibold text-white transition hover:bg-stone-700"
                                 >
-                                    {isSubmitting ? 'Sending...' : 'Send Project Brief'}
+                                    {isSubmitting ? 'Sending...' : 'Send!'}
                                 </button>
-                                <p className="mt-2 text-xs text-stone-500">
-                                    This form sends your brief directly without opening a mail app.
-                                </p>
                             </div>
                         </form>
                     </div>
                 </section>
 
                 <section className="max-w-6xl mx-auto px-6 pt-2 pb-20">
-                    <div className="rounded-3xl border border-stone-300 bg-[#1f2528] p-8 text-stone-100 md:p-10">
-                        <p className="text-xs tracking-[0.16em] text-stone-300">BEFORE YOU SEND</p>
-                        <h2 className="display-font mt-3 text-3xl">What to include in your first message</h2>
-                        <ul className="mt-6 grid gap-4 md:grid-cols-2">
-                            <li className="rounded-xl border border-white/20 bg-white/5 p-4">Home type and size</li>
-                            <li className="rounded-xl border border-white/20 bg-white/5 p-4">Current devices/platforms you already use</li>
-                            <li className="rounded-xl border border-white/20 bg-white/5 p-4">Top 3 frustrations you want solved</li>
-                            <li className="rounded-xl border border-white/20 bg-white/5 p-4">Desired timeline and budget range</li>
-                        </ul>
-
-                        <div className="mt-8">
-                            <Link href="/services" className="inline-flex rounded-md bg-[#f4e7d2] px-6 py-3 font-semibold text-stone-900 transition hover:bg-[#f0dcc0]">
-                                View Services
-                            </Link>
+                    <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">
+                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">Prefer to reach out directly?</h2>
+                        <div className="mt-7 flex flex-wrap justify-center gap-3">
+                            <a href="mailto:lazysmarthome29@gmail.com" className="rounded-md bg-stone-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
+                                lazysmarthome29@gmail.com
+                            </a>
+                            <a href="tel:+17789988857" className="rounded-md bg-stone-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
+                                +1 778 998 8857
+                            </a>
+                            <span className="group relative rounded-md bg-stone-900 px-7 py-3 text-sm font-semibold text-white cursor-default select-none">
+                                WeChat: LazyBeansSmartHome
+                                <span className="pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                                    <img
+                                        src={`${SITE_CONFIG.basePath}/images/wechat-qr.png`}
+                                        alt="WeChat QR Code"
+                                        className="w-40 rounded-xl border border-stone-200 shadow-xl"
+                                    />
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </section>

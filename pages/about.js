@@ -19,9 +19,6 @@ export default function About() {
                                     Homeowners, renters, or first-time users. Full-home setup or just a few automations.
                                 </p>
                                 <div className="mt-6 flex flex-wrap gap-3">
-                                    <Link href="/contact" className="rounded-md bg-[#f2d9b1] px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-[#e9c998]">
-                                        Get Free Cost Estimate
-                                    </Link>
                                     <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-100 transition hover:bg-white/10">
                                         Compare Services
                                     </Link>
@@ -29,14 +26,14 @@ export default function About() {
                             </div>
 
                             <aside className="grid gap-3 sm:grid-cols-2 md:grid-cols-1">
-                                <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px]">
+                                <Link href="/contact" className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px] transition hover:bg-white/20 block">
+                                    <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">GET STARTED</p>
+                                    <p className="mt-2 text-lg font-semibold text-white">Get Free Cost Estimate →</p>
+                                </Link>
+                                <Link href="/services" className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px] transition hover:bg-white/20 block">
                                     <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">DELIVERABLE</p>
-                                    <p className="mt-2 text-lg font-semibold text-white">Practical Smart Home Plan</p>
-                                </div>
-                                <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px]">
-                                    <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">FIRST CONTACT</p>
-                                    <p className="mt-2 text-lg font-semibold text-white">Free Cost Estimate</p>
-                                </div>
+                                    <p className="mt-2 text-lg font-semibold text-white">What to Buy. How to Set It Up. →</p>
+                                </Link>
                                 <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px]">
                                     <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">DELIVERY MODE</p>
                                     <p className="mt-2 text-lg font-semibold text-white">On-site or Remote</p>
@@ -62,6 +59,9 @@ export default function About() {
                             <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">WHY IT WORKS</p>
                             <h2 className="display-font mt-2 text-2xl text-stone-900">No random device buying</h2>
                             <p className="mt-2 text-stone-700">Clear scope first, then purchase and implementation.</p>
+                            <Link href="/ecosystems" className="mt-4 inline-flex rounded-md bg-stone-900 px-4 py-2 text-xs font-semibold text-white transition hover:bg-stone-700">
+                                See supported devices
+                            </Link>
                         </article>
                     </div>
                 </section>
@@ -92,7 +92,7 @@ export default function About() {
                                 Get Free Cost Estimate
                             </Link>
                             <Link href="/services" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
-                                View Services
+                                Compare Services
                             </Link>
                         </div>
                     </div>

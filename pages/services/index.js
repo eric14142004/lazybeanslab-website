@@ -18,7 +18,7 @@ export default function Services() {
                         </p>
                         <div className="mt-7 flex flex-wrap justify-center gap-3">
                             <Link href="/contact" className="rounded-md bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Book Consultation
+                                Get Free Cost Estimate
                             </Link>
                             <Link href="/about" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
                                 About Us

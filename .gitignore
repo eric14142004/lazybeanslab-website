@@ -38,3 +38,7 @@ _site/
 
 # 忽略自訂資料夾
 assets/temp/
+
+# Environment variables (local secrets)
+.env.local
+.env*.local
