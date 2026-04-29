@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { services } from '../data/services';
+import { homeServices, services } from '../data/services';
 import { projects } from '../data/projects';
 import ProjectCard from '../components/ProjectCard';
 import Link from 'next/link';
@@ -9,8 +9,6 @@ import { SITE_CONFIG } from '../src/config/site';
 export default function Home() {
     const heroImage = services[0]?.images?.[0] || '/images/services/consultation-1.jpg';
     const secondaryImage = services[1]?.images?.[0] || '/images/services/installation-1.jpg';
-    const homeServices = services.filter((service) => service.showOnHome !== false);
-
     return (
         <>
             <Header />
