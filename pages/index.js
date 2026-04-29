@@ -18,11 +18,8 @@ export default function Home() {
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_18px_48px_-34px_rgba(24,28,33,0.45)] md:p-10">
                         <div className="grid items-center gap-8 md:grid-cols-2">
                             <div>
-                                <p className="inline-flex items-center rounded-full border border-stone-300 bg-white px-4 py-1 text-xs tracking-[0.16em] text-stone-700">
-                                    SMART HOME CONSULTING
-                                </p>
-                                <h1 className="display-font mt-5 text-4xl leading-tight text-stone-900 md:text-6xl">
-                                    Smart home, done right.
+                                <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-6xl">
+                                    Smart Home, done right.
                                 </h1>
                                 <p className="mt-4 max-w-xl text-base text-stone-700 md:text-lg">
                                     Full-home consulting and troubleshooting.
@@ -74,7 +71,7 @@ export default function Home() {
                     </div>
 
                     <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-                        {homeServices.map((service) => (
+                        {homeServices.slice(0, 4).map((service) => (
                             <Link
                                 key={service.id}
                                 href={`/services#${service.id}`}

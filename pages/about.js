@@ -7,88 +7,89 @@ export default function About() {
         <>
             <Header />
             <main className="site-bg pt-24">
-                <section className="max-w-6xl mx-auto px-6 pt-14 pb-10">
-                    <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_26px_80px_-46px_rgba(24,28,33,0.55)] md:p-10">
-                        <p className="inline-flex rounded-full border border-stone-300 bg-white px-4 py-1 text-xs tracking-[0.14em] text-stone-700">
-                            ABOUT
-                        </p>
-                        <h1 className="display-font mt-5 text-4xl leading-tight text-stone-900 md:text-5xl">
-                            Lazy Beans Smart Home builds systems that stay reliable in real life.
-                        </h1>
-                        <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">
-                            We design around your routine, space, and budget, then create integrations that are simple, stable, and easy to maintain.
-                        </p>
-                        <div className="mt-7 flex flex-wrap gap-3">
-                            <Link href="/contact" className="rounded-md bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Book Consultation
-                            </Link>
-                            <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
-                                View Services
-                            </Link>
+                <section className="max-w-6xl mx-auto px-6 pt-14 pb-8">
+                    <div className="rounded-[2rem] border border-stone-800 bg-[linear-gradient(145deg,#141b1f_0%,#202a2f_65%,#2a343a_100%)] p-6 text-stone-100 shadow-[0_30px_80px_-44px_rgba(15,20,25,0.95)] md:p-10">
+                        <div className="grid gap-8 md:grid-cols-[1.3fr_1fr]">
+                            <div>
+                                <p className="text-xs font-semibold tracking-[0.16em] text-stone-300">ABOUT LAZY BEANS SMART HOME</p>
+                                <h1 className="display-font mt-3 text-4xl leading-tight text-white md:text-5xl">
+                                    We turn smart home ideas into clear, budget-fit plans.
+                                </h1>
+                                <p className="mt-4 max-w-2xl text-stone-300 md:text-lg">
+                                    Homeowners, renters, or first-time users. Full-home setup or just a few automations.
+                                </p>
+                                <div className="mt-6 flex flex-wrap gap-3">
+                                    <Link href="/contact" className="rounded-md bg-[#f2d9b1] px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-[#e9c998]">
+                                        Get Free Cost Estimate
+                                    </Link>
+                                    <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-100 transition hover:bg-white/10">
+                                        Compare Services
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <aside className="grid gap-3 sm:grid-cols-2 md:grid-cols-1">
+                                <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px]">
+                                    <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">DELIVERABLE</p>
+                                    <p className="mt-2 text-lg font-semibold text-white">Practical Smart Home Plan</p>
+                                </div>
+                                <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px]">
+                                    <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">FIRST CONTACT</p>
+                                    <p className="mt-2 text-lg font-semibold text-white">Free Cost Estimate</p>
+                                </div>
+                                <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px]">
+                                    <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">DELIVERY MODE</p>
+                                    <p className="mt-2 text-lg font-semibold text-white">On-site or Remote</p>
+                                </div>
+                            </aside>
                         </div>
                     </div>
                 </section>
 
                 <section className="max-w-6xl mx-auto px-6 py-8">
-                    <div className="grid gap-6 md:grid-cols-3">
+                    <div className="grid gap-4 md:grid-cols-3">
                         <article className="rounded-2xl border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)]">
-                            <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">MISSION</p>
-                            <h2 className="display-font mt-3 text-2xl text-stone-900">Practical, not flashy</h2>
-                            <p className="mt-3 text-stone-700">
-                                We turn scattered devices into one system your family uses daily.
-                            </p>
+                            <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">WHO WE HELP</p>
+                            <h2 className="display-font mt-2 text-2xl text-stone-900">Homeowners and renters</h2>
+                            <p className="mt-2 text-stone-700">From full-home design to just a few smart devices. Even small setups are welcome.</p>
                         </article>
                         <article className="rounded-2xl border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)]">
-                            <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">APPROACH</p>
-                            <h2 className="display-font mt-3 text-2xl text-stone-900">Plan before purchase</h2>
-                            <p className="mt-3 text-stone-700">
-                                We define goals and upgrade paths first, so every device has a clear role.
-                            </p>
+                            <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">WHAT WE DO</p>
+                            <h2 className="display-font mt-2 text-2xl text-stone-900">Design, recommendation, budget fit</h2>
+                            <p className="mt-2 text-stone-700">System design, purchase guidance, and device selection within budget.</p>
                         </article>
                         <article className="rounded-2xl border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)]">
-                            <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">PROMISE</p>
-                            <h2 className="display-font mt-3 text-2xl text-stone-900">Support after install</h2>
-                            <p className="mt-3 text-stone-700">
-                                We stay for tuning, troubleshooting, and future upgrades.
-                            </p>
+                            <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">WHY IT WORKS</p>
+                            <h2 className="display-font mt-2 text-2xl text-stone-900">No random device buying</h2>
+                            <p className="mt-2 text-stone-700">Clear scope first, then purchase and implementation.</p>
                         </article>
                     </div>
                 </section>
 
                 <section className="max-w-6xl mx-auto px-6 py-10">
-                    <div className="rounded-3xl border border-stone-300 bg-[#1f2528] p-8 text-stone-100 md:p-10">
-                        <p className="text-xs tracking-[0.16em] text-stone-300">WHY CLIENTS CHOOSE US</p>
-                        <h2 className="display-font mt-3 text-3xl">Clear process. Predictable outcomes.</h2>
-                        <div className="mt-6 grid gap-4 md:grid-cols-2">
-                            <article className="rounded-xl border border-white/20 bg-white/5 p-4">
-                                <p className="text-sm font-semibold tracking-[0.12em] text-stone-300">01</p>
-                                <p className="mt-2 text-sm text-stone-100">Cross-brand integration, no lock-in.</p>
-                            </article>
-                            <article className="rounded-xl border border-white/20 bg-white/5 p-4">
-                                <p className="text-sm font-semibold tracking-[0.12em] text-stone-300">02</p>
-                                <p className="mt-2 text-sm text-stone-100">Budget-aware recommendations with phased rollout.</p>
-                            </article>
-                            <article className="rounded-xl border border-white/20 bg-white/5 p-4">
-                                <p className="text-sm font-semibold tracking-[0.12em] text-stone-300">03</p>
-                                <p className="mt-2 text-sm text-stone-100">Clean documentation and handoff.</p>
-                            </article>
-                            <article className="rounded-xl border border-white/20 bg-white/5 p-4">
-                                <p className="text-sm font-semibold tracking-[0.12em] text-stone-300">04</p>
-                                <p className="mt-2 text-sm text-stone-100">Post-install optimization and support.</p>
-                            </article>
-                        </div>
+                    <div className="grid gap-4 md:grid-cols-2">
+                        <article className="rounded-3xl border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)] md:p-7">
+                            <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">ON-SITE MODE</p>
+                            <h2 className="display-font mt-2 text-3xl text-stone-900">Local, hands-on execution</h2>
+                            <p className="mt-3 text-stone-700">Site walkthrough, non-electrical installation support, and on-site automation setup.</p>
+                        </article>
+                        <article className="rounded-3xl border border-stone-300 bg-[#1f2528] p-6 text-stone-100 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)] md:p-7">
+                            <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">REMOTE MODE</p>
+                            <h2 className="display-font mt-2 text-3xl text-white">Remote planning and setup</h2>
+                            <p className="mt-3 text-stone-300">Guided device setup, remote automation configuration, and verification without on-site visit.</p>
+                        </article>
                     </div>
                 </section>
 
                 <section className="max-w-6xl mx-auto px-6 pt-2 pb-20">
                     <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">
-                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">Ready to design your smart home roadmap?</h2>
-                        <p className="mx-auto mt-3 max-w-2xl text-stone-700">
-                            Share your goals and setup. We will suggest the highest-impact first step.
+                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">Start with a free cost estimate.</h2>
+                        <p className="mx-auto mt-3 max-w-4xl text-stone-700">
+                            Send your goals and budget. We reply with scope, delivery mode, and estimated cost range.
                         </p>
                         <div className="mt-7 flex flex-wrap justify-center gap-3">
                             <Link href="/contact" className="rounded-md bg-stone-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Book Consultation
+                                Get Free Cost Estimate
                             </Link>
                             <Link href="/services" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
                                 View Services

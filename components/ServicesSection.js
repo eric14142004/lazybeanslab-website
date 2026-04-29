@@ -252,18 +252,15 @@ export default function ServicesSection() {
     };
 
     return (
-        <section className="max-w-6xl mx-auto w-full px-6 py-2 md:py-4">
+        <section className="max-w-6xl mx-auto w-full px-6 py-4 md:py-6">
             <div className="mb-4 rounded-[1.5rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] px-5 py-4 shadow-[0_14px_40px_-34px_rgba(24,28,33,0.45)] md:px-6 md:py-4">
-                <p className="inline-flex rounded-full border border-stone-300 bg-white px-4 py-1 text-[11px] tracking-[0.14em] text-stone-700">
-                    SERVICES
-                </p>
-                <div className="mt-3 flex flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-8">
+                <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-8">
                     <div>
                         <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">
-                            Choose a service and review the flow.
+                            Find the right service for your home.
                         </h1>
                         <p className="mt-1.5 max-w-2xl text-sm text-stone-700 md:text-[0.98rem]">
-                            Browse the cards below to compare options and open the matching workflow.
+                            Compare your options, then preview each step before you book.
                         </p>
                     </div>
                     <Link href="/contact" className="inline-flex items-center text-sm font-semibold text-stone-900 underline decoration-stone-400 underline-offset-4 transition hover:decoration-stone-900">
@@ -272,11 +269,7 @@ export default function ServicesSection() {
                 </div>
             </div>
 
-            <div className="mb-3 flex items-center justify-between gap-4">
-                <p className="text-sm font-semibold tracking-[0.12em] text-stone-600">SELECT SERVICE</p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-7 md:hidden">
+            <div className="mt-6 grid grid-cols-1 gap-7 md:hidden">
                 {services.map((service) => (
                     <div key={`mobile-${service.id}`} data-service-id={service.id} className="flex flex-col">
                         {renderServiceCardButton(service)}
@@ -285,7 +278,7 @@ export default function ServicesSection() {
             </div>
 
             <div
-                className="relative hidden md:block"
+                className="relative mt-6 hidden md:block"
                 onMouseMove={(event) => {
                     if (overflowServices.length === 0) {
                         return;
@@ -307,7 +300,7 @@ export default function ServicesSection() {
                     }
                 }}
             >
-                <div className={`relative z-10 overflow-hidden ${overflowServices.length > 0 ? 'pr-10 pl-10' : ''}`}>
+                <div className={`relative z-10 overflow-hidden ${overflowServices.length > 0 ? 'px-3' : ''}`}>
                     <div
                         className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                         style={{
@@ -349,7 +342,7 @@ export default function ServicesSection() {
                                 {index === leftStackAnchorIndex && leftHiddenCount > 0 && (
                                     <div
                                         aria-hidden="true"
-                                        className={`pointer-events-none absolute inset-y-3 left-3 right-3 z-0 transition duration-500 ${isStackExpanded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-3'}`}
+                                        className={`pointer-events-none absolute inset-y-0 left-3 right-3 z-0 transition duration-500 ${isStackExpanded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-3'}`}
                                     >
                                         <div className="relative h-full w-full">
                                             {Array.from({ length: leftHiddenCount }).map((_, stackIndex) => (
@@ -357,8 +350,9 @@ export default function ServicesSection() {
                                                     key={`left-stack-layer-${stackIndex}`}
                                                     className="absolute inset-0 rounded-2xl border border-stone-300 bg-white shadow-[0_14px_26px_-18px_rgba(24,28,33,0.55)]"
                                                     style={{
-                                                        transform: `translate(-${(stackIndex + 1) * 14}px, ${(stackIndex + 1) * 4}px) scale(${1 - stackIndex * 0.012})`,
-                                                        opacity: Math.max(0.34, 0.92 - stackIndex * 0.12),
+                                                        transform: `translateX(-${(stackIndex + 1) * 8}px)`,
+                                                        opacity: Math.max(0.34, 0.88 - stackIndex * 0.15),
+                                                        zIndex: leftHiddenCount - stackIndex,
                                                     }}
                                                 />
                                             ))}
@@ -374,7 +368,7 @@ export default function ServicesSection() {
                                 {index === rightStackAnchorIndex && rightHiddenCount > 0 && (
                                     <div
                                         aria-hidden="true"
-                                        className={`pointer-events-none absolute inset-y-3 left-3 right-3 z-0 transition duration-500 ${isStackExpanded ? 'opacity-0 translate-x-3' : 'opacity-100 translate-x-0'}`}
+                                        className={`pointer-events-none absolute inset-y-0 left-3 right-3 z-0 transition duration-500 ${isStackExpanded ? 'opacity-0 translate-x-3' : 'opacity-100 translate-x-0'}`}
                                     >
                                         <div className="relative h-full w-full">
                                             {Array.from({ length: rightHiddenCount }).map((_, stackIndex) => (
@@ -382,8 +376,9 @@ export default function ServicesSection() {
                                                     key={`stack-layer-${stackIndex}`}
                                                     className="absolute inset-0 rounded-2xl border border-stone-300 bg-white shadow-[0_14px_26px_-18px_rgba(24,28,33,0.55)]"
                                                     style={{
-                                                        transform: `translate(${(stackIndex + 1) * 14}px, ${(stackIndex + 1) * 4}px) scale(${1 - stackIndex * 0.012})`,
-                                                        opacity: Math.max(0.34, 0.92 - stackIndex * 0.12),
+                                                        transform: `translateX(${(stackIndex + 1) * 8}px)`,
+                                                        opacity: Math.max(0.34, 0.88 - stackIndex * 0.15),
+                                                        zIndex: rightHiddenCount - stackIndex,
                                                     }}
                                                 />
                                             ))}
@@ -436,8 +431,7 @@ export default function ServicesSection() {
 
                     <div ref={detailContentRef} className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-start">
                         <div>
-                            <p className="inline-flex rounded-full border border-stone-300 bg-white px-4 py-1 text-xs font-semibold tracking-[0.14em] text-stone-600">FLOW</p>
-                            <h3 className="display-font mt-4 text-3xl text-stone-900">{activeService.name}</h3>
+                            <h3 className="display-font text-3xl text-stone-900">{activeService.name}</h3>
                             <p className="mt-4 text-stone-700">{activeService.description}</p>
                         </div>
                         <div className="overflow-hidden rounded-xl border border-stone-300 bg-stone-100">

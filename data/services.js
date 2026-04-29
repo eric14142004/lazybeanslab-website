@@ -1,32 +1,36 @@
 const serviceCatalog = [
   {
     id: 'whole-home-planning',
-    sortOrder: 10,
+    sortOrder: 0,
     isHidden: false,
-    name: 'Whole-home Smart Planning',
-    description: 'System planning for your full home environment',
+    name: 'On-site Smart Home Planning',
+    description: 'On-site planning, setup, and automation for your full home environment',
     showOnHome: true,
     images: [
       '/images/services/consultation-1.jpg',
     ],
     process: [
       {
-        title: 'Site Audit',
-        detail: 'Review layout, existing devices, and daily routines.',
+        title: 'Goal & Layout Review',
+        detail: 'Review routines, room layout, and existing devices together on-site.',
       },
       {
-        title: 'Architecture Draft',
-        detail: 'Define platform strategy, compatibility, and priority scope.',
+        title: 'On-site Audit',
+        detail: 'Review compatibility, smart home ecosystem choices, and network readiness through an on-site walkthrough.',
       },
       {
-        title: 'Planning Pack',
-        detail: 'Deliver setup roadmap, automation direction, and expansion path.',
+        title: 'On-site Installation (Non-electrical)',
+        detail: 'Install and pair supported non-electrical devices such as hubs, sensors, and smart locks.',
+      },
+      {
+        title: 'On-site Automation Setup',
+        detail: 'Configure scenes and routines on-site, then validate reliability with you before handoff.',
       },
     ]
   },
   {
     id: 'installation',
-    sortOrder: 20,
+    sortOrder: 2,
     isHidden: false,
     name: 'Device Installation',
     description: 'On-site setup for locks, lights, sensors, and cameras',
@@ -51,7 +55,7 @@ const serviceCatalog = [
   },
   {
     id: 'troubleshooting',
-    sortOrder: 30,
+    sortOrder: 3,
     isHidden: false,
     name: 'Device Troubleshooting',
     description: 'Fix unstable devices, pairing failures, and connection issues',
@@ -80,7 +84,7 @@ const serviceCatalog = [
   },
   {
     id: 'automation-planning',
-    sortOrder: 40,
+    sortOrder: 4,
     isHidden: false,
     name: 'Automation Planning',
     description: 'Design scenes, routines, and trigger logic',
@@ -105,9 +109,9 @@ const serviceCatalog = [
   },
   {
     id: 'remote-planning',
-    sortOrder: 50,
+    sortOrder: 1,
     isHidden: false,
-    name: 'Remote Automation Planning',
+    name: 'Remote Smart Home Planning',
     description: 'Remote planning and setup for smart home automation',
     showOnHome: true,
     images: [
@@ -115,27 +119,27 @@ const serviceCatalog = [
     ],
     process: [
       {
-        title: 'Requirement Intake',
-        detail: 'Collect goals, pain points, and desired automation outcomes from the client.',
+        title: 'Goal & Layout Review',
+        detail: 'Collect routines, room layout, and current device details via remote consultation.',
       },
       {
-        title: 'Plan Alignment',
-        detail: 'Confirm key details together and provide a clear remote implementation plan.',
+        title: 'Remote System Audit',
+        detail: 'Review compatibility, smart home ecosystem choices, and network readiness from shared setup details.',
       },
       {
         title: 'Client-side Installation',
-        detail: 'Client completes device installation and basic smart home setup on-site.',
+        detail: 'Client installs supported devices on-site with our step-by-step remote guidance.',
       },
       {
         title: 'Remote Automation Setup',
-        detail: 'Configure scenes, routines, and automation logic remotely, then verify operation.',
+        detail: 'We configure scenes and routines remotely, then verify end-to-end operation with you.',
       },
     ]
   },
   {
     id: 'network-and-hub-setup',
-    sortOrder: 60,
-    isHidden: false,
+    sortOrder: 5,
+    isHidden: true,
     name: 'Network & Hub Setup',
     description: 'Prepare hubs, Wi-Fi, and connectivity for reliable smart home control',
     showOnHome: true,
@@ -173,7 +177,7 @@ const compareServices = (left, right) => {
 
 const normalizeService = (service, index) => ({
   ...service,
-  sortOrder: service.sortOrder ?? (index + 1) * 10,
+  sortOrder: service.sortOrder ?? index,
   isHidden: service.isHidden ?? false,
   _sourceIndex: index,
 });
