@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { homeServices, services } from '../data/services';
-import { projects } from '../data/projects';
+import { cases } from '../data/cases';
 import ProjectCard from '../components/ProjectCard';
 import Link from 'next/link';
 import { SITE_CONFIG } from '../src/config/site';
@@ -19,18 +19,15 @@ export default function Home() {
                         <div className="grid items-center gap-8 md:grid-cols-2">
                             <div>
                                 <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-6xl">
-                                    Smart Home, done right.
-                                </h1>
-                                <p className="mt-4 max-w-xl text-base text-stone-700 md:text-lg">
-                                    Full-home consulting and troubleshooting.
-                                </p>
+                                        We plan it. You enjoy it.
+                                    </h1>
+                                    <p className="mt-4 max-w-xl text-base text-stone-700 md:text-lg">
+                                        Design, compatibility checks, and clear budgets before you buy.
+                                    </p>
 
-                                <div className="mt-7 flex flex-wrap gap-3">
-                                    <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
-                                        View Services
-                                    </Link>
+                                    {/* testimonial and trust chips removed from hero (moved below) */}
+
                                 </div>
-                            </div>
 
                             <div className="relative">
                                 <div className="overflow-hidden rounded-2xl border border-stone-300 bg-stone-200">
@@ -60,7 +57,7 @@ export default function Home() {
                     <div className="flex items-end justify-between gap-6 flex-wrap">
                         <div>
                             <h2 className="display-font text-3xl text-stone-900">Services</h2>
-                            <p className="mt-2 text-sm text-stone-700">Planning, installation, troubleshooting, automation, and after-sales support.</p>
+                            <p className="mt-2 text-sm text-stone-700">From system design to setup, automation, and long-term support.</p>
                         </div>
                         <Link href="/services" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
                             View All
@@ -119,12 +116,21 @@ export default function Home() {
 
                 {SITE_CONFIG.showProjects && (
                     <section className="max-w-6xl mx-auto px-6 py-12">
-                        <h2 className="display-font text-3xl text-stone-900">Recent Work</h2>
+                        <h2 className="display-font text-3xl text-stone-900">Cases</h2>
                         <div className="mt-8 grid md:grid-cols-3 gap-6">
-                            {projects.map((project) => <ProjectCard key={project.id} project={project} />)}
+                            {cases.map((project) => <ProjectCard key={project.id} project={project} />)}
+                        </div>
+                        <div className="mt-8 flex justify-end">
+                            <Link href="/cases" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">See All Cases</Link>
                         </div>
                     </section>
                 )}
+
+                <section className="max-w-6xl mx-auto px-6 py-8">
+                    <div className="rounded-3xl border border-stone-300 bg-white p-6 text-center md:p-8">
+                        <p className="text-sm text-stone-700">Trusted by local homeowners for dependable smart home setups.</p>
+                    </div>
+                </section>
 
                 <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
                     <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">

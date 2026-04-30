@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
     repoName: "lazybeanslab-website",
     basePath: "/lazybeanslab-website",
-    showProjects: false,
+    showProjects: true,
     // EmailJS configuration (from environment variables)
     emailjs: {
         serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",

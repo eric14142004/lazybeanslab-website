@@ -40,7 +40,7 @@ const protocolTiles = [
     { name: 'BLE Mesh', logo: '/images/brands/ble-mesh.png', logoClass: 'scale-[1.75]' },
 ];
 
-export default function Ecosystems() {
+export default function Devices() {
     return (
         <>
             <Header />
@@ -114,8 +114,7 @@ export default function Ecosystems() {
 
                 <section className="max-w-6xl mx-auto px-6 pt-2 pb-20">
                     <div className="rounded-3xl border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)] md:p-8">
-                        <p className="text-xs font-semibold tracking-[0.14em] text-stone-500">BRAND LOGO WALL</p>
-                        <h3 className="display-font mt-2 text-3xl text-stone-900">Common brands we integrate</h3>
+                        <h3 className="display-font text-3xl text-stone-900">Common brands we integrate</h3>
                         <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
                             {brandTiles.map((tile) => (
                                 <article
