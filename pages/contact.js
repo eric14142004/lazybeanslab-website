@@ -86,7 +86,7 @@ export default function Contact() {
     return (
         <>
             <Header />
-            <main className="site-bg pt-24">
+            <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-10">
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_26px_80px_-46px_rgba(24,28,33,0.55)] md:p-10">
                         <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl">

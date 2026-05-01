@@ -32,10 +32,11 @@ export default function Header() {
         <nav className="mx-auto flex max-w-6xl items-center gap-4 overflow-x-auto px-4 pb-3 text-sm font-semibold text-stone-200 md:hidden">
           <Link href="/">Home</Link>
           <Link href="/services">Services</Link>
-          <Link href="/devices">Devices & Systems</Link>
+          <Link href="/devices">Devices</Link>
           {SITE_CONFIG.showProjects && <Link href="/cases">Cases</Link>}
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
+
         </nav>
       </header>
   );

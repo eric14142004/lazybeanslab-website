@@ -13,21 +13,18 @@ export default function Home() {
         <>
             <Header />
 
-            <main className="site-bg pt-24">
+            <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-12">
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_18px_48px_-34px_rgba(24,28,33,0.45)] md:p-10">
-                        <div className="grid items-center gap-8 md:grid-cols-2">
+                        <div className="grid items-center gap-6 md:gap-8 md:grid-cols-2">
                             <div>
-                                <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-6xl">
-                                        We plan it. You enjoy it.
-                                    </h1>
-                                    <p className="mt-4 max-w-xl text-base text-stone-700 md:text-lg">
-                                        Design, compatibility checks, and clear budgets before you buy.
-                                    </p>
-
-                                    {/* testimonial and trust chips removed from hero (moved below) */}
-
-                                </div>
+                                <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl">
+                                    We plan it. You enjoy it.
+                                </h1>
+                                <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">
+                                    Design, compatibility checks, and clear budgets before you buy.
+                                </p>
+                            </div>
 
                             <div className="relative">
                                 <div className="overflow-hidden rounded-2xl border border-stone-300 bg-stone-200">

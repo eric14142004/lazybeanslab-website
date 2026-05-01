@@ -6,7 +6,7 @@ export default function About() {
     return (
         <>
             <Header />
-            <main className="site-bg pt-24">
+            <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-8">
                     <div className="rounded-[2rem] border border-stone-800 bg-[linear-gradient(145deg,#141b1f_0%,#202a2f_65%,#2a343a_100%)] p-6 text-stone-100 shadow-[0_30px_80px_-44px_rgba(15,20,25,0.95)] md:p-10">
                         <div className="grid gap-8 md:grid-cols-[1.3fr_1fr]">

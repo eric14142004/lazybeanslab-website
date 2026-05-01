@@ -44,7 +44,7 @@ export default function Devices() {
     return (
         <>
             <Header />
-            <main className="site-bg pt-24">
+            <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-8">
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_18px_48px_-34px_rgba(24,28,33,0.45)] md:p-10">
                         <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl">

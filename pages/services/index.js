@@ -7,7 +7,7 @@ export default function Services() {
     return (
         <>
             <Header />
-            <main className="site-bg pt-24">
+            <main className="site-bg pt-28 md:pt-24">
                 <ServicesSection />
 
                 <section className="max-w-6xl mx-auto px-6 pt-2 pb-20">
