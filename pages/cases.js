@@ -77,10 +77,12 @@ export default function Cases() {
             <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-8">
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 md:p-10">
-                        <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">Client Case</h1>
-                        <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">On-site, remote, and troubleshooting projects — each with real client feedback.</p>
-                        <div className="mt-7 flex flex-wrap gap-3">
-                            <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
+                        <div className="flex items-end justify-between gap-6 flex-wrap">
+                            <div>
+                                <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">Client Case</h1>
+                                <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">On-site, remote, and troubleshooting projects — each with real client feedback.</p>
+                            </div>
+                            <Link href="/services" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
                                 View Services
                             </Link>
                         </div>
