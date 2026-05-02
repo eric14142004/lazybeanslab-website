@@ -30,7 +30,7 @@ const SOCIAL_ITEMS = [
   {
     key: 'wechat',
     href: null,
-    mobileHref: 'weixin://',
+    mobileHref: `${SITE_CONFIG.basePath}/images/qr/wechat-qr.png`,
     label: 'LazyBeansSmartHome',
     qr: '/images/qr/wechat-qr.png',
     qrAlt: 'WeChat QR Code',
@@ -68,8 +68,8 @@ const SOCIAL_ITEMS = [
   },
   {
     key: 'xiaohongshu',
-    href: null,
-    mobileHref: 'xhsdiscover://',
+    href: 'https://xhslink.com/m/3XHGWCMRz51',
+    mobileHref: 'https://xhslink.com/m/3XHGWCMRz51',
     label: '懶豆子｜智能家居',
     qr: '/images/qr/redbook-qr.png',
     qrAlt: '小紅書 QR Code',
@@ -128,9 +128,11 @@ function openMobileApp(item) {
     return;
   }
 
+  const isWebUrl = item.mobileHref.startsWith('http') || item.mobileHref.startsWith('/');
+
   window.location.href = item.mobileHref;
 
-  if (item.href && item.href.startsWith('http')) {
+  if (!isWebUrl && item.href && item.href.startsWith('http')) {
     window.setTimeout(() => {
       window.location.href = item.href;
     }, 700);
