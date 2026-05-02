@@ -26,11 +26,11 @@ export default function About() {
             <Header />
             <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-8">
-                    <div className="rounded-[2rem] border border-stone-300 bg-white p-6 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)] md:p-10">
+                    <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_18px_48px_-34px_rgba(24,28,33,0.45)] md:p-10">
                         <div className="grid gap-8 md:grid-cols-[1.3fr_1fr]">
                             <div>
                                 <p className="text-xs font-semibold tracking-[0.16em] text-stone-500">{t.about.label}</p>
-                                <h1 className="display-font mt-3 text-4xl leading-tight text-stone-900 md:text-5xl">
+                                <h1 className="display-font mt-3 text-4xl leading-tight text-stone-900 md:text-5xl md:whitespace-nowrap">
                                     {t.about.heroTitle}
                                 </h1>
                                 <p className="mt-4 max-w-2xl text-stone-600 md:text-lg">

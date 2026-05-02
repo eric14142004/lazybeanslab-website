@@ -19,7 +19,7 @@ export const en = {
     services: 'Design · Integration · Automation',
   },
   home: {
-    heroTitle: 'We plan it. You enjoy it.',
+    heroTitle: 'Simply life, Smart Living',
     heroSub: 'Design, compatibility checks, and clear budgets before you buy.',
     servicesTitle: 'Services',
     servicesSub: 'From system design to setup, automation, and long-term support.',
@@ -41,7 +41,7 @@ export const en = {
   },
   about: {
     label: 'ABOUT LAZY BEANS SMART HOME',
-    heroTitle: 'We plan it. You enjoy it.',
+    heroTitle: 'Simply life, Smart Living',
     heroSub: 'No tech background needed. We handle the research, compatibility checks, and setup plan.',
     getStartedLabel: 'GET STARTED',
     deliverableLabel: 'DELIVERABLE',

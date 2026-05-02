@@ -1,4 +1,3 @@
-import type { NextConfig } from "next";
 import { SITE_CONFIG } from "./src/config/site";
 
 const nextConfig = {

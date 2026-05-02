@@ -13,6 +13,7 @@ export function LanguageProvider({ children }) {
 
     useEffect(() => {
         const saved = typeof window !== 'undefined' ? localStorage.getItem('lang') : null;
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         if (saved && translations[saved]) setLang(saved);
     }, []);
 

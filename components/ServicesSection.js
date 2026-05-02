@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { services } from '../data/services';
 import { SITE_CONFIG } from '../src/config/site';
@@ -14,7 +13,7 @@ export default function ServicesSection() {
     const directionRef = useRef('next');
     const highlightOnNextChangeRef = useRef(false);
     const swipeTouchStartX = useRef(null);
-    const { t, lang } = useLanguage();
+    const { t } = useLanguage();
 
     const activeIndex = services.findIndex((service) => service.id === activeId);
 

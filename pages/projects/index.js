@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 
 export default function Projects() {
-    const { t, lang } = useLanguage();
+    const { t } = useLanguage();
     return (
         <>
             <Header />

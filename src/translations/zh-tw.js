@@ -19,7 +19,7 @@ export const zhTw = {
     services: '設計・整合・自動化',
   },
   home: {
-    heroTitle: '我們規劃，您享受。',
+    heroTitle: 'Simply life, Smart Living',
     heroSub: '購買前先做設計、相容性確認與清晰預算。',
     servicesTitle: '服務',
     servicesSub: '從系統設計到安裝、自動化與長期支援。',
@@ -41,7 +41,7 @@ export const zhTw = {
   },
   about: {
     label: '關於 LAZY BEANS SMART HOME',
-    heroTitle: '我們規劃，您享受。',
+    heroTitle: 'Simply life, Smart Living',
     heroSub: '不需要技術背景。我們處理所有研究、相容性確認與安裝規劃。',
     getStartedLabel: '開始使用',
     deliverableLabel: '交付成果',

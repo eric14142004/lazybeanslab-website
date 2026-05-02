@@ -11,7 +11,7 @@ const heroImage = '/images/home/hero.png';
 const secondaryImage = '/images/home/hero-secondary.png';
 
 export default function Home() {
-    const { t, lang } = useLanguage();
+    const { t } = useLanguage();
     return (
         <>
             <Header />
@@ -19,9 +19,9 @@ export default function Home() {
             <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-12">
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_18px_48px_-34px_rgba(24,28,33,0.45)] md:p-10">
-                        <div className="grid items-center gap-6 md:gap-8 md:grid-cols-2">
+                        <div className="grid items-center gap-6 md:gap-12 md:grid-cols-[1fr_1.3fr]">
                             <div>
-                                <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl">
+                                <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl md:whitespace-nowrap">
                                     {t.home.heroTitle}
                                 </h1>
                                 <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">
@@ -127,21 +127,17 @@ export default function Home() {
 
                 {SITE_CONFIG.showProjects && (
                     <section className="max-w-6xl mx-auto px-6 py-12">
-                        <h2 className="display-font text-3xl text-stone-900">{t.home.casesTitle}</h2>
+                        <div className="flex items-end justify-between gap-6 flex-wrap">
+                            <h2 className="display-font text-3xl text-stone-900">{t.home.casesTitle}</h2>
+                            <Link href="/cases" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
+                                {t.home.seeAllCases}
+                            </Link>
+                        </div>
                         <div className="mt-8 grid md:grid-cols-3 gap-6">
                             {cases.map((project) => <ProjectCard key={project.id} project={project} />)}
                         </div>
-                        <div className="mt-8 flex justify-end">
-                            <Link href="/cases" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">{t.home.seeAllCases}</Link>
-                        </div>
                     </section>
                 )}
-
-                <section className="max-w-6xl mx-auto px-6 py-8">
-                    <div className="rounded-3xl border border-stone-300 bg-white p-6 text-center md:p-8">
-                        <p className="text-sm text-stone-700">{t.home.trustedBy}</p>
-                    </div>
-                </section>
 
                 <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
                     <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">
