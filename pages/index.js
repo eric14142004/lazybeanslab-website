@@ -1,14 +1,15 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { homeServices, services } from '../data/services';
+import { homeServices } from '../data/services';
 import { cases } from '../data/cases';
 import ProjectCard from '../components/ProjectCard';
 import Link from 'next/link';
 import { SITE_CONFIG } from '../src/config/site';
 
+const heroImage = '/images/home/hero.png';
+const secondaryImage = '/images/home/hero-secondary.png';
+
 export default function Home() {
-    const heroImage = services[0]?.images?.[0] || '/images/services/consultation-1.jpg';
-    const secondaryImage = services[1]?.images?.[0] || '/images/services/installation-1.jpg';
     return (
         <>
             <Header />
@@ -26,24 +27,21 @@ export default function Home() {
                                 </p>
                             </div>
 
-                            <div className="relative">
-                                <div className="overflow-hidden rounded-2xl border border-stone-300 bg-stone-200">
-                                    <img
-                                        src={`${SITE_CONFIG.basePath}${heroImage}`}
-                                        alt="Smart home consulting"
-                                        decoding="async"
-                                        className="h-[320px] w-full object-cover md:h-[380px]"
-                                    />
-                                </div>
-                                <div className="absolute -bottom-4 -left-4 hidden w-40 overflow-hidden rounded-xl border border-stone-300 bg-white shadow-lg md:block">
+                            <div className="relative pb-10 md:pb-12">
+                                <img
+                                    src={`${SITE_CONFIG.basePath}${heroImage}`}
+                                    alt="Smart home consulting"
+                                    decoding="async"
+                                    className="w-full scale-110 object-contain mix-blend-multiply"
+                                />
+                                <div className="absolute bottom-4 -left-14 hidden w-44 md:block">
                                     <img
                                         src={`${SITE_CONFIG.basePath}${secondaryImage}`}
                                         alt="Smart home installation"
                                         loading="lazy"
                                         decoding="async"
-                                        className="h-24 w-full object-cover"
+                                        className="w-full object-contain drop-shadow-lg"
                                     />
-                                    <p className="px-3 py-2 text-xs font-semibold text-stone-700">Small fixes to full setup</p>
                                 </div>
                             </div>
                         </div>

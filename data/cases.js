@@ -12,7 +12,7 @@ export const cases = [
     id: "shanghai-rental",
     name: "Remote: Shanghai Rental Design",
     images: [
-      `${SITE_CONFIG.basePath}/images/cases/shanghai-rental/main.jpg`,  
+      `${SITE_CONFIG.basePath}/images/cases/shanghai-rental/main.png`,  
       `${SITE_CONFIG.basePath}/images/cases/shanghai-rental/1.png`,
       `${SITE_CONFIG.basePath}/images/cases/shanghai-rental/2.png`,
     ],

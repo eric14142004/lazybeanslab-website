@@ -12,6 +12,7 @@ export default function ServicesSection() {
     const stepRefs = useRef([]);
     const directionRef = useRef('next');
     const highlightOnNextChangeRef = useRef(false);
+    const swipeTouchStartX = useRef(null);
 
     const activeIndex = services.findIndex((service) => service.id === activeId);
 
@@ -404,7 +405,18 @@ export default function ServicesSection() {
             </div>
 
             {activeService && (
-                <div ref={planRef} className="group relative mt-10 scroll-mt-32 rounded-3xl border border-stone-300 bg-white p-6 shadow-[0_18px_40px_-28px_rgba(24,28,33,0.9)] md:p-8">
+                <div
+                    ref={planRef}
+                    className="group relative mt-10 scroll-mt-32 rounded-3xl border border-stone-300 bg-white p-6 shadow-[0_18px_40px_-28px_rgba(24,28,33,0.9)] md:p-8"
+                    onTouchStart={(e) => { swipeTouchStartX.current = e.touches[0].clientX; }}
+                    onTouchEnd={(e) => {
+                        if (swipeTouchStartX.current === null) return;
+                        const dx = e.changedTouches[0].clientX - swipeTouchStartX.current;
+                        swipeTouchStartX.current = null;
+                        if (Math.abs(dx) < 40) return;
+                        if (dx < 0) selectNext(); else selectPrevious();
+                    }}
+                >
                     <div className="pointer-events-none absolute left-2 right-2 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-between md:-left-14 md:-right-14 md:flex md:opacity-0 md:transition md:duration-200 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
                         <button
                             type="button"
@@ -458,23 +470,13 @@ export default function ServicesSection() {
                         })}
                     </div>
 
-                    <div className="mt-6 flex items-center justify-center gap-2 md:hidden">
-                        <button
-                            type="button"
-                            onClick={selectPrevious}
-                            aria-label="Previous service"
-                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-stone-400 bg-white text-stone-900 shadow-sm transition hover:bg-stone-100"
-                        >
-                            <span aria-hidden="true" className="text-base leading-none">&#8592;</span>
-                        </button>
-                        <button
-                            type="button"
-                            onClick={selectNext}
-                            aria-label="Next service"
-                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-stone-400 bg-white text-stone-900 shadow-sm transition hover:bg-stone-100"
-                        >
-                            <span aria-hidden="true" className="text-base leading-none">&#8594;</span>
-                        </button>
+                    <div className="mt-5 flex items-center justify-center gap-1.5 md:hidden" aria-hidden="true">
+                        {services.map((s) => (
+                            <span
+                                key={s.id}
+                                className={`block h-1.5 rounded-full transition-all duration-300 ${s.id === activeId ? 'w-5 bg-stone-700' : 'w-1.5 bg-stone-300'}`}
+                            />
+                        ))}
                     </div>
                     </div>
             )}

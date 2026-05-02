@@ -36,12 +36,13 @@ function CaseCard({ project }) {
     const [mainIdx, setMainIdx] = useState(0);
     const content = caseContent[project.id];
     const colors = colorMap[content.color];
+    const showFullImage = project.id === 'shanghai-rental' && mainIdx === 0;
     return (
         <div className="rounded-2xl border border-stone-300 bg-white p-6 flex flex-col shadow-[0_10px_24px_-20px_rgba(30,35,40,0.10)]">
             <img
                 src={project.images[mainIdx]}
                 alt={project.name}
-                className="w-full h-48 rounded-xl border border-stone-200 object-cover mb-3 transition-all duration-300"
+                className={`w-full h-48 rounded-xl border border-stone-200 mb-3 transition-all duration-300 ${showFullImage ? 'object-contain bg-stone-100' : 'object-cover'}`}
             />
             {project.images.length > 1 && (
                 <div className="flex gap-2 mb-4 overflow-x-auto pb-1">

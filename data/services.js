@@ -7,7 +7,7 @@ const serviceCatalog = [
     description: 'On-site planning, setup, and automation for your full home environment',
     showOnHome: true,
     images: [
-      '/images/services/consultation-1.jpg',
+      '/images/services/whole-home.png',
     ],
     process: [
       {
@@ -36,7 +36,7 @@ const serviceCatalog = [
     description: 'On-site setup for locks, lights, sensors, and cameras',
     showOnHome: true,
     images: [
-      '/images/services/installation-1.jpg',
+      '/images/services/installation.png',
     ],
     process: [
       {
@@ -61,7 +61,7 @@ const serviceCatalog = [
     description: 'Fix unstable devices, pairing failures, and connection issues',
     showOnHome: true,
     images: [
-      '/images/services/consultation-2.jpg',
+      '/images/services/troubleshooting.png',
     ],
     process: [
       {
@@ -90,7 +90,7 @@ const serviceCatalog = [
     description: 'Design scenes, routines, and trigger logic',
     showOnHome: true,
     images: [
-      '/images/services/automation-1.jpg',
+      '/images/services/automation.png',
     ],
     process: [
       {
@@ -115,7 +115,7 @@ const serviceCatalog = [
     description: 'Remote planning and setup for smart home automation',
     showOnHome: true,
     images: [
-      '/images/services/automation-1.jpg',
+      '/images/services/remote-planning.png',
     ],
     process: [
       {
