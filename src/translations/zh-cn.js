@@ -4,6 +4,7 @@ export const zhCn = {
     aboutUs: '关于我们',
     compareServices: '对比服务',
     viewServices: '查看服务',
+    watchYoutube: '看更多智能家居灵感',
   },
   nav: {
     home: '首页',
@@ -37,7 +38,6 @@ export const zhCn = {
     trustedBy: '深受本地业主信赖的可靠智能家居服务。',
     ctaTitle: '准备好开始了吗？',
     ctaSub: '告诉我们您的目标与预算。',
-    watchYoutube: '看我们的 YouTube',
   },
   about: {
     label: '关于 LAZY BEANS SMART HOME',
@@ -69,8 +69,7 @@ export const zhCn = {
     ctaTitle: '从免费报价开始。',
     ctaSub: '发送您的目标与预算，我们将回复服务范围、交付方式与费用区间。',
     directContact: '更倾向直接联系？',
-    watchYoutube: '看我们的 YouTube 频道',
-    youtubeLabel: 'YOUTUBE',
+    watchYoutube: '看更多智能家居灵感',
     youtubeDesc: '真实安装视频、讲解与智能家居小贴士——预约前先看看我们怎么做。',
     contactLabel: '联系我们',
   },

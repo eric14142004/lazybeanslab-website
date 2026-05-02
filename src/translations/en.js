@@ -4,6 +4,7 @@ export const en = {
     aboutUs: 'About Us',
     compareServices: 'Compare Services',
     viewServices: 'View Services',
+    watchYoutube: 'Watch More Smart Home Ideas',
   },
   nav: {
     home: 'Home',
@@ -37,7 +38,6 @@ export const en = {
     trustedBy: 'Trusted by local homeowners for dependable smart home setups.',
     ctaTitle: 'Ready to start?',
     ctaSub: 'Tell us your goal and budget.',
-    watchYoutube: 'Watch on YouTube',
   },
   about: {
     label: 'ABOUT LAZY BEANS SMART HOME',
@@ -69,7 +69,7 @@ export const en = {
     ctaTitle: 'Start with a free cost estimate.',
     ctaSub: 'Send your goals and budget. We reply with scope, delivery mode, and estimated cost range.',
     directContact: 'Prefer to reach out directly?',
-    watchYoutube: 'Watch on YouTube',
+    watchYoutube: 'Watch More Setup Guides',
     youtubeLabel: 'YOUTUBE',
     youtubeDesc: 'Real installs, walkthroughs, and smart home tips — see how we work before you book.',
     contactLabel: 'CONTACT US',

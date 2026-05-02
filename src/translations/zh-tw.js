@@ -4,6 +4,7 @@ export const zhTw = {
     aboutUs: '關於我們',
     compareServices: '比較服務',
     viewServices: '查看服務',
+    watchYoutube: '看更多智能家居靈感',
   },
   nav: {
     home: '首頁',
@@ -14,7 +15,7 @@ export const zhTw = {
     contact: '聯絡',
   },
   footer: {
-    tagline: '為追求穩定而非炫技的屋主提供智慧家居顧問服務。',
+    tagline: '為追求穩定而非炫技的屋主提供智能家居顧問服務。',
     copy: '© 2026 Lazy Beans Smart Home',
     services: '設計・整合・自動化',
   },
@@ -34,10 +35,9 @@ export const zhTw = {
     remoteDesc: '線上規劃與實施路線圖。',
     casesTitle: '案例',
     seeAllCases: '查看所有案例',
-    trustedBy: '深受本地屋主信賴的可靠智慧家居服務。',
+    trustedBy: '深受本地屋主信賴的可靠智能家居服務。',
     ctaTitle: '準備好開始了嗎？',
     ctaSub: '告訴我們您的目標與預算。',
-    watchYoutube: '看我們的 YouTube',
   },
   about: {
     label: '關於 LAZY BEANS SMART HOME',
@@ -69,9 +69,9 @@ export const zhTw = {
     ctaTitle: '從免費估價開始。',
     ctaSub: '傳送您的目標與預算，我們將回覆範圍、服務方式與估算費用範圍。',
     directContact: '偶好直接聯繫？',
-    watchYoutube: '看我們的 YouTube 頻道',
+    watchYoutube: '看更多安裝教學',
     youtubeLabel: 'YOUTUBE',
-    youtubeDesc: '真實安裝影片、導覽與智慧家居技巧——預約前先看看我們怎麼做。',
+    youtubeDesc: '真實安裝影片、導覽與智能家居技巧——預約前先看看我們怎麼做。',
     contactLabel: '聯繫我們',
   },
   contact: {
@@ -96,7 +96,7 @@ export const zhTw = {
     timeline: '期望時間線',
     timelinePlaceholder: '盡快、下個月、六個月內等',
     painPoints: '主要痛點／目標 *',
-    painPointsPlaceholder: '目前有什麼困擾，希望智慧家居能做到哪些改進？',
+    painPointsPlaceholder: '目前有什麼困擾，希望智能家居能做到哪些改進？',
     sendBtn: '傳送！',
     sending: '傳送中...',
     formError: '請填寫姓名、預算範圍與主要痛點。',
@@ -113,7 +113,7 @@ export const zhTw = {
     caseDetails: {
       apartment: {
         name: '豪華公寓自動化',
-        desc: '客戶希望打造完整的智慧家居，我們一次完成規劃、安裝與培訓。',
+        desc: '客戶希望打造完整的智能家居，我們一次完成規劃、安裝與培訓。',
         quote: '「一切都運作正常。說明清晰，操作简單，強烈推薦！」',
         location: '— 温哥華，BC',
       },
@@ -124,7 +124,7 @@ export const zhTw = {
         location: '— 上海，中國',
       },
       renovation: {
-        name: '智慧家居翻新',
+        name: '智能家居翻新',
         desc: '設備不斷出現故障，我們到府修復並指導客戶避免未來問題。',
         quote: '「他們修好了別人修不好的問題——現在一切都運作順暢」',
         location: '— 列治文，BC',
@@ -139,7 +139,7 @@ export const zhTw = {
     ecosystemsSub: '不確定？我們將為您選擇最適合的方案。',
     protocolLabel: '協議支援',
     protocolTitle: '專為混合協議設計。',
-    protocolSub: '我們在智慧家居實際使用的無線標準中設計穩定的配置。',
+    protocolSub: '我們在智能家居實際使用的無線標準中設計穩定的配置。',
     brandsTitle: '我們整合的常見品牌',
     brandsMore: '更多品牌支援中',
     ctaTitle: '有特定品牌想了解？',
@@ -152,21 +152,21 @@ export const zhTw = {
     ctaSub: '告訴我們您目前的設備與目標，我們將建議影響最大的第一步。',
     serviceDetails: {
       'whole-home-planning': {
-        name: '到府智慧家居規劃',
-        description: '到府規劃、安裝與自動化，打造完整的智慧家居環境',
+        name: '到府智能家居規劃',
+        description: '到府規劃、安裝與自動化，打造完整的智能家居環境',
         process: [
           { title: '目標與格局確認', detail: '到府一起確認生活習慣、房間格局與現有設備。' },
-          { title: '到府審核', detail: '透過到府勘察，確認相容性、智慧家居生態系選擇與網路準備情況。' },
-          { title: '到府安裝（非電工）', detail: '安裝並配對支援的非電工設備，如集線器、感測器與智慧門鎖。' },
+          { title: '到府審核', detail: '透過到府勘察，確認相容性、智能家居生態系選擇與網路準備情況。' },
+          { title: '到府安裝（非電工）', detail: '安裝並配對支援的非電工設備，如集線器、感測器與智能門鎖。' },
           { title: '到府自動化設定', detail: '到府配置場景與例程，在交付前與您一起驗證可靠性。' },
         ],
       },
       'remote-planning': {
-        name: '遠端智慧家居規劃',
-        description: '遠端規劃與設定智慧家居自動化',
+        name: '遠端智能家居規劃',
+        description: '遠端規劃與設定智能家居自動化',
         process: [
           { title: '目標與格局確認', detail: '透過遠端諮詢收集生活習慣、房間格局與現有設備資訊。' },
-          { title: '遠端系統審核', detail: '根據共享的設定資訊，確認相容性、智慧家居生態系選擇與網路準備情況。' },
+          { title: '遠端系統審核', detail: '根據共享的設定資訊，確認相容性、智能家居生態系選擇與網路準備情況。' },
           { title: '客戶端安裝', detail: '客戶到府安裝支援設備，由我們提供逐步遠端指導。' },
           { title: '遠端自動化設定', detail: '我們遠端配置場景與例程，然後與您一起驗證端對端運作情況。' },
         ],
@@ -201,7 +201,7 @@ export const zhTw = {
       },
       'network-and-hub-setup': {
         name: '網路與集線器設定',
-        description: '準備集線器、Wi-Fi 與連接性，實現可靠的智慧家居控制',
+        description: '準備集線器、Wi-Fi 與連接性，實現可靠的智能家居控制',
         process: [
           { title: '網路審核', detail: '檢查路由器位置、Wi-Fi 覆蓋範圍與當前設備負載。' },
           { title: '集線器配置', detail: '為目標生態系統配置集線器、橋接器與帳戶訪問。' },
@@ -218,7 +218,7 @@ export const zhTw = {
     ctaSub: '告訴我們您的目標與預算，我們將為您的家制定方案。',
   },
   lighting: {
-    title: 'Lazy Beans 智慧家居——燈光自動化',
+    title: 'Lazy Beans 智能家居——燈光自動化',
     desc: '我們設計實用的燈光場景，提升舒適度、能源效率與日常便利性。',
   },
 };

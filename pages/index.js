@@ -38,7 +38,7 @@ export default function Home() {
                                         className="flex items-center gap-2 rounded-md border border-stone-400 px-6 py-3 text-sm font-semibold text-stone-800 transition hover:bg-white/70"
                                     >
                                         <svg className="h-4 w-4 text-red-600 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-                                        {t.home.watchYoutube}
+                                        {t.common.watchYoutube}
                                     </a>
                                 </div>
                             </div>
