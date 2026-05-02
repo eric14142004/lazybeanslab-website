@@ -301,7 +301,7 @@ export default function ServicesSection() {
                     {mobileVisibleLeftLayers > 0 && (
                         <div
                             aria-hidden="true"
-                            className="pointer-events-none absolute inset-y-6 left-[7%] z-10 w-[10%]"
+                            className="pointer-events-none absolute inset-y-6 left-[4%] z-10 w-[10%]"
                         >
                             <div className="relative h-full w-full">
                                 {Array.from({ length: mobileVisibleLeftLayers }).map((_, stackIndex) => (
@@ -315,11 +315,7 @@ export default function ServicesSection() {
                                         }}
                                     />
                                 ))}
-                                <div className="absolute left-0 top-1">
-                                    <span className="rounded-full border border-stone-400 bg-white/95 px-2 py-1 text-[0.65rem] font-semibold text-stone-800 shadow-sm">
-                                        +{mobileLeftHiddenCount}
-                                    </span>
-                                </div>
+
                             </div>
                         </div>
                     )}
@@ -327,7 +323,7 @@ export default function ServicesSection() {
                     {mobileVisibleRightLayers > 0 && (
                         <div
                             aria-hidden="true"
-                            className="pointer-events-none absolute inset-y-6 right-[7%] z-10 w-[10%]"
+                            className="pointer-events-none absolute inset-y-6 right-[4%] z-10 w-[10%]"
                         >
                             <div className="relative h-full w-full">
                                 {Array.from({ length: mobileVisibleRightLayers }).map((_, stackIndex) => (
@@ -341,17 +337,13 @@ export default function ServicesSection() {
                                         }}
                                     />
                                 ))}
-                                <div className="absolute right-0 top-1">
-                                    <span className="rounded-full border border-stone-400 bg-white/95 px-2 py-1 text-[0.65rem] font-semibold text-stone-800 shadow-sm">
-                                        +{mobileRightHiddenCount}
-                                    </span>
-                                </div>
+
                             </div>
                         </div>
                     )}
 
                     {activeService && (
-                        <div className="relative z-20 mx-[10%] transition-transform duration-300">
+                        <div className="relative z-20 mx-[6%] transition-transform duration-300">
                             {renderServiceCardButton(activeService, { allowCollapse: false, forceScroll: true })}
                         </div>
                     )}
@@ -368,14 +360,12 @@ export default function ServicesSection() {
                     const rect = event.currentTarget.getBoundingClientRect();
                     const hoverRatio = (event.clientX - rect.left) / rect.width;
 
-                    // 飘到左边卡片区域时收回
                     if (isStackExpanded && hoverRatio <= 0.48 && !isOverflowHovered) {
                         setIsStackExpanded(false);
                         setIsOverflowHovered(false);
                         return;
                     }
 
-                    // 飘到右边或在溢出卡片上时展开
                     if (hoverRatio >= 0.86 || isOverflowHovered) {
                         setIsStackExpanded(true);
                     }
