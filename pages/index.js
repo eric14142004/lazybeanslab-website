@@ -27,6 +27,20 @@ export default function Home() {
                                 <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">
                                     {t.home.heroSub}
                                 </p>
+                                <div className="mt-6 flex flex-wrap gap-3">
+                                    <Link href="/contact" className="rounded-md bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
+                                        {t.common.getEstimate}
+                                    </Link>
+                                    <a
+                                        href="https://www.youtube.com/@%E6%87%B6%E8%B1%86%E5%AD%90%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 rounded-md border border-stone-400 px-6 py-3 text-sm font-semibold text-stone-800 transition hover:bg-white/70"
+                                    >
+                                        <svg className="h-4 w-4 text-red-600 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+                                        {t.home.watchYoutube}
+                                    </a>
+                                </div>
                             </div>
 
                             <div className="relative pb-10 md:pb-12">

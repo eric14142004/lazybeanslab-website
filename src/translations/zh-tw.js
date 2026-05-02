@@ -37,6 +37,7 @@ export const zhTw = {
     trustedBy: '深受本地屋主信賴的可靠智慧家居服務。',
     ctaTitle: '準備好開始了嗎？',
     ctaSub: '告訴我們您的目標與預算。',
+    watchYoutube: '看我們的 YouTube',
   },
   about: {
     label: '關於 LAZY BEANS SMART HOME',
@@ -67,6 +68,11 @@ export const zhTw = {
     remoteDesc: '引導設備設定、遠端自動化配置與驗證，無需到府。',
     ctaTitle: '從免費估價開始。',
     ctaSub: '傳送您的目標與預算，我們將回覆範圍、服務方式與估算費用範圍。',
+    directContact: '偶好直接聯繫？',
+    watchYoutube: '看我們的 YouTube 頻道',
+    youtubeLabel: 'YOUTUBE',
+    youtubeDesc: '真實安裝影片、導覽與智慧家居技巧——預約前先看看我們怎麼做。',
+    contactLabel: '聯繫我們',
   },
   contact: {
     heroTitle: '免費獲取費用估算。',
