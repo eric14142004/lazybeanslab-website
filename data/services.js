@@ -33,7 +33,7 @@ const serviceCatalog = [
     sortOrder: 2,
     isHidden: false,
     name: 'Device Installation',
-    description: 'On-site setup for locks, lights, sensors, and cameras',
+    description: 'On-site setup for locks, lights, sensors, and cameras (non-electrical scope only)',
     showOnHome: true,
     images: [
       '/images/services/installation.png',
@@ -41,11 +41,11 @@ const serviceCatalog = [
     process: [
       {
         title: 'Pre-install Check',
-        detail: 'Confirm mounting points, power access, and network readiness.',
+        detail: 'Confirm mounting points, power access, and network readiness; items requiring electrician work are excluded.',
       },
       {
         title: 'On-site Deployment',
-        detail: 'Install devices and complete app/network integration.',
+        detail: 'Install supported non-electrical devices and complete app/network integration. We do not perform electrical construction or wiring work.',
       },
       {
         title: 'Commissioning',

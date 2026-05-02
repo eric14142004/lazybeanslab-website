@@ -5,7 +5,7 @@ export const cases = [
     id: "apartment",
     name: "Luxury Apartment Automation",
     images: [
-      `${SITE_CONFIG.basePath}/images/cases/apartment/main.jpg`,
+      `${SITE_CONFIG.basePath}/images/cases/apartment/main.png`,
     ],
   },
   {
@@ -21,7 +21,7 @@ export const cases = [
     id: "renovation",
     name: "Smart Home Renovation",
     images: [
-      `${SITE_CONFIG.basePath}/images/cases/renovation/main.jpg`,
+      `${SITE_CONFIG.basePath}/images/cases/renovation/main.png`,
     ],
   },
 ];

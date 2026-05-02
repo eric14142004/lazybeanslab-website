@@ -9,19 +9,19 @@ const caseContent = {
     apartment: {
         desc: 'Client wanted a fully smart home. We handled planning, install, and training—done in one go.',
         color: 'emerald',
-        quote: '"Everything just works. The team explained every step and made sure I could use all the features. Highly recommended!"',
+        quote: 'Everything works smoothly. Clear guidance, easy to use, highly recommended!',
         location: '— Vancouver, BC',
     },
     'shanghai-rental': {
         desc: 'Shanghai rental, new baby on the way. We planned devices, install spots, and automations—fully remote, budget-friendly.',
         color: 'sky',
-        quote: '"Clear plan, easy setup, works great for our family."',
+        quote: 'Clear plan, easy setup, works great for our family.',
         location: '— Shanghai, China',
     },
     renovation: {
         desc: 'Devices kept failing. We fixed it on-site and showed the client how to avoid future issues.',
         color: 'amber',
-        quote: "\"They fixed what three other services couldn't. Now everything is stable and I know what to avoid next time.\"",
+        quote: "They solved what others couldn’t — now everything works smoothly",
         location: '— Richmond, BC',
     },
 };
@@ -77,8 +77,13 @@ export default function Cases() {
             <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-8">
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 md:p-10">
-                        <h1 className="display-font text-4xl text-stone-900">Client Case Studies</h1>
-                        <p className="mt-3 max-w-2xl text-stone-700">On-site, remote, and troubleshooting projects — each with real client feedback.</p>
+                        <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">Client Case</h1>
+                        <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">On-site, remote, and troubleshooting projects — each with real client feedback.</p>
+                        <div className="mt-7 flex flex-wrap gap-3">
+                            <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
+                                View Services
+                            </Link>
+                        </div>
                     </div>
                 </section>
 
