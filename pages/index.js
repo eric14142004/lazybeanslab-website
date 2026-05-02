@@ -5,11 +5,13 @@ import { cases } from '../data/cases';
 import ProjectCard from '../components/ProjectCard';
 import Link from 'next/link';
 import { SITE_CONFIG } from '../src/config/site';
+import { useLanguage } from '../src/contexts/LanguageContext';
 
 const heroImage = '/images/home/hero.png';
 const secondaryImage = '/images/home/hero-secondary.png';
 
 export default function Home() {
+    const { t, lang } = useLanguage();
     return (
         <>
             <Header />
@@ -20,10 +22,10 @@ export default function Home() {
                         <div className="grid items-center gap-6 md:gap-8 md:grid-cols-2">
                             <div>
                                 <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl">
-                                    We plan it. You enjoy it.
+                                    {t.home.heroTitle}
                                 </h1>
                                 <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">
-                                    Design, compatibility checks, and clear budgets before you buy.
+                                    {t.home.heroSub}
                                 </p>
                             </div>
 
@@ -51,11 +53,11 @@ export default function Home() {
                 <section className="max-w-6xl mx-auto px-6 py-10">
                     <div className="flex items-end justify-between gap-6 flex-wrap">
                         <div>
-                            <h2 className="display-font text-3xl text-stone-900">Services</h2>
-                            <p className="mt-2 text-sm text-stone-700">From system design to setup, automation, and long-term support.</p>
+                            <h2 className="display-font text-3xl text-stone-900">{t.home.servicesTitle}</h2>
+                            <p className="mt-2 text-sm text-stone-700">{t.home.servicesSub}</p>
                         </div>
                         <Link href="/services" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
-                            View All
+                            {t.home.viewAll}
                         </Link>
                     </div>
 
@@ -69,15 +71,15 @@ export default function Home() {
                                 <div className="aspect-[5/3] overflow-hidden bg-stone-100">
                                     <img
                                         src={`${SITE_CONFIG.basePath}${service.images[0]}`}
-                                        alt={service.name}
+                                        alt={t.services.serviceDetails[service.id]?.name ?? service.id}
                                         loading="lazy"
                                         decoding="async"
                                         className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                                     />
                                 </div>
                                 <div className="p-5">
-                                    <h3 className="text-lg font-semibold text-stone-900">{service.name}</h3>
-                                    <p className="mt-2 text-sm text-stone-700">{service.description}</p>
+                                    <h3 className="text-lg font-semibold text-stone-900">{t.services.serviceDetails[service.id]?.name}</h3>
+                                    <p className="mt-2 text-sm text-stone-700">{t.services.serviceDetails[service.id]?.description}</p>
                                 </div>
                             </Link>
                         ))}
@@ -88,22 +90,22 @@ export default function Home() {
                     <div className="rounded-3xl border border-stone-300 bg-[#1f2528] p-7 text-stone-100 md:p-10">
                         <div className="flex flex-wrap items-end justify-between gap-4">
                             <div>
-                                <p className="text-xs tracking-[0.18em] text-stone-300">SERVICE AREA</p>
-                                <h2 className="display-font mt-2 text-3xl">Where We Work</h2>
+                                <p className="text-xs tracking-[0.18em] text-stone-300">{t.home.serviceAreaLabel}</p>
+                                <h2 className="display-font mt-2 text-3xl">{t.home.whereWeWork}</h2>
                             </div>
                         </div>
 
                         <div className="mt-6 grid gap-4 md:grid-cols-2">
                             <article className="rounded-2xl border border-white/15 bg-white/5 p-5">
-                                <h3 className="text-xl font-semibold">Greater Vancouver</h3>
-                                <p className="mt-1 text-xs font-semibold tracking-[0.14em] text-emerald-200">ON-SITE SERVICE</p>
-                                <p className="mt-3 text-sm text-stone-200">In-person consultation and setup.</p>
+                                <h3 className="text-xl font-semibold">{t.home.greaterVancouver}</h3>
+                                <p className="mt-1 text-xs font-semibold tracking-[0.14em] text-emerald-200">{t.home.onSiteService}</p>
+                                <p className="mt-3 text-sm text-stone-200">{t.home.onSiteDesc}</p>
                             </article>
 
                             <article className="rounded-2xl border border-white/15 bg-white/5 p-5">
-                                <h3 className="text-xl font-semibold">Outside Greater Vancouver</h3>
-                                <p className="mt-1 text-xs font-semibold tracking-[0.14em] text-sky-200">REMOTE PLANNING</p>
-                                <p className="mt-3 text-sm text-stone-200">Online planning and implementation roadmap.</p>
+                                <h3 className="text-xl font-semibold">{t.home.outsideVancouver}</h3>
+                                <p className="mt-1 text-xs font-semibold tracking-[0.14em] text-sky-200">{t.home.remotePlanning}</p>
+                                <p className="mt-3 text-sm text-stone-200">{t.home.remoteDesc}</p>
                             </article>
                         </div>
                     </div>
@@ -111,32 +113,32 @@ export default function Home() {
 
                 {SITE_CONFIG.showProjects && (
                     <section className="max-w-6xl mx-auto px-6 py-12">
-                        <h2 className="display-font text-3xl text-stone-900">Cases</h2>
+                        <h2 className="display-font text-3xl text-stone-900">{t.home.casesTitle}</h2>
                         <div className="mt-8 grid md:grid-cols-3 gap-6">
                             {cases.map((project) => <ProjectCard key={project.id} project={project} />)}
                         </div>
                         <div className="mt-8 flex justify-end">
-                            <Link href="/cases" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">See All Cases</Link>
+                            <Link href="/cases" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">{t.home.seeAllCases}</Link>
                         </div>
                     </section>
                 )}
 
                 <section className="max-w-6xl mx-auto px-6 py-8">
                     <div className="rounded-3xl border border-stone-300 bg-white p-6 text-center md:p-8">
-                        <p className="text-sm text-stone-700">Trusted by local homeowners for dependable smart home setups.</p>
+                        <p className="text-sm text-stone-700">{t.home.trustedBy}</p>
                     </div>
                 </section>
 
                 <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
                     <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">
-                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">Ready to start?</h2>
-                        <p className="mx-auto mt-3 max-w-xl text-stone-700">Tell us your goal and budget.</p>
+                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">{t.home.ctaTitle}</h2>
+                        <p className="mx-auto mt-3 max-w-xl text-stone-700">{t.home.ctaSub}</p>
                         <div className="mt-7 flex flex-wrap justify-center gap-3">
                             <Link href="/contact" className="rounded-md bg-stone-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Get Free Cost Estimate
+                                {t.common.getEstimate}
                             </Link>
                             <Link href="/about" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
-                                About Us
+                                {t.common.aboutUs}
                             </Link>
                         </div>
                     </div>

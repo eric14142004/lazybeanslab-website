@@ -4,26 +4,12 @@ import { cases } from '../data/cases';
 import Link from 'next/link';
 import { SITE_CONFIG } from '../src/config/site';
 import { useState } from 'react';
+import { useLanguage } from '../src/contexts/LanguageContext';
 
-const caseContent = {
-    apartment: {
-        desc: 'Client wanted a fully smart home. We handled planning, install, and training—done in one go.',
-        color: 'emerald',
-        quote: 'Everything works smoothly. Clear guidance, easy to use, highly recommended!',
-        location: '— Vancouver, BC',
-    },
-    'shanghai-rental': {
-        desc: 'Shanghai rental, new baby on the way. We planned devices, install spots, and automations—fully remote, budget-friendly.',
-        color: 'sky',
-        quote: 'Clear plan, easy setup, works great for our family.',
-        location: '— Shanghai, China',
-    },
-    renovation: {
-        desc: 'Devices kept failing. We fixed it on-site and showed the client how to avoid future issues.',
-        color: 'amber',
-        quote: "They solved what others couldn’t — now everything works smoothly",
-        location: '— Richmond, BC',
-    },
+const caseColor = {
+    apartment: 'emerald',
+    'shanghai-rental': 'sky',
+    renovation: 'amber',
 };
 
 const colorMap = {
@@ -34,14 +20,16 @@ const colorMap = {
 
 function CaseCard({ project }) {
     const [mainIdx, setMainIdx] = useState(0);
-    const content = caseContent[project.id];
-    const colors = colorMap[content.color];
+    const { t, lang } = useLanguage();
+    const color = caseColor[project.id];
+    const colors = colorMap[color];
+    const detail = t.cases.caseDetails[project.id];
     const showFullImage = project.id === 'shanghai-rental' && mainIdx === 0;
     return (
         <div className="rounded-2xl border border-stone-300 bg-white p-6 flex flex-col shadow-[0_10px_24px_-20px_rgba(30,35,40,0.10)]">
             <img
                 src={project.images[mainIdx]}
-                alt={project.name}
+                alt={detail.name}
                 className={`w-full h-48 rounded-xl border border-stone-200 mb-3 transition-all duration-300 ${showFullImage ? 'object-contain bg-stone-100' : 'object-cover'}`}
             />
             {project.images.length > 1 && (
@@ -59,18 +47,19 @@ function CaseCard({ project }) {
                     ))}
                 </div>
             )}
-            <h2 className="display-font text-xl text-stone-900 mb-1">{project.name}</h2>
-            <p className="mt-2 text-stone-700 text-sm">{content.desc}</p>
+            <h2 className="display-font text-xl text-stone-900 mb-1">{detail.name}</h2>
+            <p className="mt-2 text-stone-700 text-sm">{detail.desc}</p>
             <div className={`mt-4 rounded-xl border ${colors.border} ${colors.bg} p-3`}>
-                <p className={`text-xs font-semibold ${colors.label}`}>CLIENT FEEDBACK</p>
-                <p className="mt-1 text-xs text-stone-900">{content.quote}</p>
-                <p className="mt-1 text-xs text-stone-500">{content.location}</p>
+                <p className={`text-xs font-semibold ${colors.label}`}>{t.cases.clientFeedback}</p>
+                <p className="mt-1 text-xs text-stone-900">{detail.quote}</p>
+                <p className="mt-1 text-xs text-stone-500">{detail.location}</p>
             </div>
         </div>
     );
 }
 
 export default function Cases() {
+    const { t } = useLanguage();
     return (
         <>
             <Header />
@@ -79,11 +68,11 @@ export default function Cases() {
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 md:p-10">
                         <div className="flex items-end justify-between gap-6 flex-wrap">
                             <div>
-                                <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">Client Case</h1>
-                                <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">On-site, remote, and troubleshooting projects — each with real client feedback.</p>
+                                <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">{t.cases.heroTitle}</h1>
+                                <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">{t.cases.heroSub}</p>
                             </div>
                             <Link href="/services" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
-                                View Services
+                                {t.common.viewServices}
                             </Link>
                         </div>
                     </div>
@@ -99,14 +88,14 @@ export default function Cases() {
 
                 <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
                     <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">
-                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">Want results like these?</h2>
-                        <p className="mx-auto mt-3 max-w-2xl text-stone-700">Tell us your goal and budget and we will propose a plan tailored to your home.</p>
+                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">{t.cases.ctaTitle}</h2>
+                        <p className="mx-auto mt-3 max-w-2xl text-stone-700">{t.cases.ctaSub}</p>
                         <div className="mt-7 flex flex-wrap justify-center gap-3">
                             <Link href="/contact" className="rounded-md bg-stone-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Get Free Cost Estimate
+                                {t.common.getEstimate}
                             </Link>
                             <Link href="/services" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
-                                Compare Services
+                                {t.common.compareServices}
                             </Link>
                         </div>
                     </div>

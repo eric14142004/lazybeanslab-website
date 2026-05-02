@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { services } from '../data/services';
 import { SITE_CONFIG } from '../src/config/site';
+import { useLanguage } from '../src/contexts/LanguageContext';
 
 export default function ServicesSection() {
     const [activeId, setActiveId] = useState(services[0]?.id ?? null);
@@ -13,6 +14,7 @@ export default function ServicesSection() {
     const directionRef = useRef('next');
     const highlightOnNextChangeRef = useRef(false);
     const swipeTouchStartX = useRef(null);
+    const { t, lang } = useLanguage();
 
     const activeIndex = services.findIndex((service) => service.id === activeId);
 
@@ -207,7 +209,7 @@ export default function ServicesSection() {
     };
 
     const activeService = services.find((service) => service.id === activeId) || null;
-    const processItems = Array.isArray(activeService?.process) ? activeService.process : [];
+    const processItems = t.services.serviceDetails[activeService?.id]?.process ?? [];
     const visibleCardCount = 4;
     const hiddenCardCount = Math.max(services.length - visibleCardCount, 0);
     const overflowServices = services.slice(visibleCardCount);
@@ -233,14 +235,14 @@ export default function ServicesSection() {
                 <div className="aspect-[16/9] overflow-hidden border-b border-stone-200 bg-stone-100 md:aspect-[1.7/1]">
                     <img
                         src={`${SITE_CONFIG.basePath}${service.images[0]}`}
-                        alt={service.name}
+                        alt={t.services.serviceDetails[service.id]?.name ?? service.id}
                         className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     />
                 </div>
 
                 <div className="p-4 md:p-4.5">
-                    <h3 className="min-h-[3rem] text-base font-semibold text-stone-900 md:min-h-[3.25rem] md:text-[1.05rem]">{service.name}</h3>
-                    <p className="mt-2 h-[3.25rem] overflow-hidden text-sm leading-5 text-stone-700 md:h-[3.5rem]">{service.description}</p>
+                    <h3 className="min-h-[3rem] text-base font-semibold text-stone-900 md:min-h-[3.25rem] md:text-[1.05rem]">{t.services.serviceDetails[service.id]?.name}</h3>
+                    <p className="mt-2 h-[3.25rem] overflow-hidden text-sm leading-5 text-stone-700 md:h-[3.5rem]">{t.services.serviceDetails[service.id]?.description}</p>
                     <div
                         aria-hidden="true"
                         className={`mt-3 flex items-center justify-center py-1 transition ${isActive ? 'text-stone-700' : 'text-stone-400'}`}
@@ -257,10 +259,10 @@ export default function ServicesSection() {
             <div className="mb-4 rounded-[1.5rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] px-5 py-4 shadow-[0_14px_40px_-34px_rgba(24,28,33,0.45)] md:px-6 md:py-4">
                 <div>
                     <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">
-                        Find the right service for your home.
+                        {t.services.heroTitle}
                     </h1>
                     <p className="mt-1.5 max-w-2xl text-sm text-stone-700 md:text-[0.98rem]">
-                        Compare your options, then preview each step before you book.
+                        {t.services.heroSub}
                     </p>
                 </div>
             </div>
@@ -438,13 +440,13 @@ export default function ServicesSection() {
 
                     <div ref={detailContentRef} className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-start">
                         <div>
-                            <h3 className="display-font text-3xl text-stone-900">{activeService.name}</h3>
-                            <p className="mt-4 text-stone-700">{activeService.description}</p>
+                            <h3 className="display-font text-3xl text-stone-900">{t.services.serviceDetails[activeService.id]?.name}</h3>
+                            <p className="mt-4 text-stone-700">{t.services.serviceDetails[activeService.id]?.description}</p>
                         </div>
                         <div className="overflow-hidden rounded-xl border border-stone-300 bg-stone-100">
                             <img
                                 src={`${SITE_CONFIG.basePath}${activeService.images[0]}`}
-                                alt={activeService.name}
+                                alt={t.services.serviceDetails[activeService.id]?.name ?? activeService.id}
                                 className="h-44 w-full object-cover"
                             />
                         </div>

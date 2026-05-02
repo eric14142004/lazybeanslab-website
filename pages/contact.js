@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { SITE_CONFIG } from '../src/config/site';
+import { useLanguage } from '../src/contexts/LanguageContext';
 
 export default function Contact() {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -35,7 +37,7 @@ export default function Contact() {
         setFormSuccess('');
 
         if (!formData.name || !formData.budget || !formData.painPoints) {
-            setFormError('Please fill in Name, Budget Range, and Top Pain Points.');
+            setFormError(t.contact.formError);
             return;
         }
 
@@ -64,7 +66,7 @@ export default function Contact() {
                 }
             );
 
-            setFormSuccess('Thanks. Your project brief was sent successfully. We will get back to you soon.');
+            setFormSuccess(t.contact.formSuccess);
             setFormData({
                 name: '',
                 email: '',
@@ -77,7 +79,7 @@ export default function Contact() {
             });
         } catch (error) {
             console.error('EmailJS error:', error);
-            setFormError('Unable to send right now. Please try again or use email/phone above.');
+            setFormError(t.contact.sendError);
         } finally {
             setIsSubmitting(false);
         }
@@ -90,17 +92,17 @@ export default function Contact() {
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-10">
                     <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_26px_80px_-46px_rgba(24,28,33,0.55)] md:p-10">
                         <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl">
-                            Get a free cost estimate.
+                            {t.contact.heroTitle}
                         </h1>
                         <p className="mt-4 max-w-2xl text-stone-700 md:text-lg">
-                            Fill in the brief below. We reply within 1–2 business days with scope and estimated cost.
+                            {t.contact.heroSub}
                         </p>
                         <div className="mt-7 flex flex-wrap gap-3">
                             <Link href="#project-brief" className="rounded-md bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
-                                Get My Estimate
+                                {t.contact.getMyEstimate}
                             </Link>
                             <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
-                                View Services
+                                {t.common.viewServices}
                             </Link>
                         </div>
                     </div>
@@ -108,77 +110,77 @@ export default function Contact() {
 
                 <section id="project-brief" className="max-w-6xl mx-auto px-6 py-4 scroll-mt-32">
                     <div className="rounded-3xl border border-stone-300 bg-white p-6 shadow-[0_18px_40px_-28px_rgba(24,28,33,0.9)] md:p-8">
-                        <h2 className="display-font text-3xl text-stone-900">What do you need help with?</h2>
+                        <h2 className="display-font text-3xl text-stone-900">{t.contact.formTitle}</h2>
 
                         <form className="mt-6 grid gap-5 md:grid-cols-2" onSubmit={handleSubmit}>
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
-                                Name *
+                                {t.contact.name}
                                 <input
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
-                                    placeholder="Your name"
+                                    placeholder={t.contact.namePlaceholder}
                                 />
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
-                                Email
+                                {t.contact.email}
                                 <input
                                     name="email"
                                     type="email"
                                     value={formData.email}
                                     onChange={handleChange}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
-                                    placeholder="you@example.com"
+                                    placeholder={t.contact.emailPlaceholder}
                                 />
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
-                                Phone
+                                {t.contact.phone}
                                 <input
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleChange}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
-                                    placeholder="+1 ..."
+                                    placeholder={t.contact.phonePlaceholder}
                                 />
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
-                                Service Area
+                                {t.contact.serviceArea}
                                 <select
                                     name="area"
                                     value={formData.area}
                                     onChange={handleChange}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
                                 >
-                                    <option value="">Select your area</option>
-                                    <option value="Greater Vancouver">Greater Vancouver</option>
-                                    <option value="Outside Greater Vancouver">Outside Greater Vancouver (Remote)</option>
+                                    <option value="">{t.contact.selectArea}</option>
+                                    <option value="Greater Vancouver">{t.contact.greaterVancouver}</option>
+                                    <option value="Outside Greater Vancouver">{t.contact.outsideVancouver}</option>
                                 </select>
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
-                                Home Type / Size
+                                {t.contact.homeType}
                                 <input
                                     name="homeType"
                                     value={formData.homeType}
                                     onChange={handleChange}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
-                                    placeholder="Condo 900 sq ft, townhouse, etc."
+                                    placeholder={t.contact.homeTypePlaceholder}
                                 />
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700">
-                                Budget Range *
+                                {t.contact.budget}
                                 <select
                                     name="budget"
                                     value={formData.budget}
                                     onChange={handleChange}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
                                 >
-                                    <option value="">Select a range</option>
+                                    <option value="">{t.contact.selectBudget}</option>
                                     <option value="Under $100">Under $100</option>
                                     <option value="$100 - $500">$100 - $500</option>
                                     <option value="$500 - $2,000">$500 - $2,000</option>
@@ -189,25 +191,25 @@ export default function Contact() {
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700 md:col-span-2">
-                                Desired Timeline
+                                {t.contact.timeline}
                                 <input
                                     name="timeline"
                                     value={formData.timeline}
                                     onChange={handleChange}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
-                                    placeholder="ASAP, next month, within 6 months..."
+                                    placeholder={t.contact.timelinePlaceholder}
                                 />
                             </label>
 
                             <label className="flex flex-col gap-2 text-sm text-stone-700 md:col-span-2">
-                                Top Pain Points / Goals *
+                                {t.contact.painPoints}
                                 <textarea
                                     name="painPoints"
                                     value={formData.painPoints}
                                     onChange={handleChange}
                                     rows={5}
                                     className="rounded-lg border border-stone-300 px-3 py-2 focus:border-stone-600 focus:outline-none"
-                                    placeholder="What is frustrating now, and what do you want your smart home to do better?"
+                                    placeholder={t.contact.painPointsPlaceholder}
                                 />
                             </label>
 
@@ -229,7 +231,7 @@ export default function Contact() {
                                     disabled={isSubmitting}
                                     className="rounded-md bg-stone-900 px-6 py-3 font-semibold text-white transition hover:bg-stone-700"
                                 >
-                                    {isSubmitting ? 'Sending...' : 'Send!'}
+                                    {isSubmitting ? t.contact.sending : t.contact.sendBtn}
                                 </button>
                             </div>
                         </form>
@@ -238,7 +240,7 @@ export default function Contact() {
 
                 <section className="max-w-6xl mx-auto px-6 pt-2 pb-20">
                     <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">
-                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">Prefer to reach out directly?</h2>
+                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">{t.contact.directContact}</h2>
                         <div className="mt-7 flex flex-wrap justify-center gap-3">
                             <a href="mailto:lazysmarthome29@gmail.com" className="rounded-md bg-stone-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
                                 lazysmarthome29@gmail.com
