@@ -69,7 +69,7 @@ export const en = {
     ctaTitle: 'Start with a free cost estimate.',
     ctaSub: 'Send your goals and budget. We reply with scope, delivery mode, and estimated cost range.',
     directContact: 'Prefer to reach out directly?',
-    watchYoutube: 'Watch our work on YouTube',
+    watchYoutube: 'Watch on YouTube',
     youtubeLabel: 'YOUTUBE',
     youtubeDesc: 'Real installs, walkthroughs, and smart home tips — see how we work before you book.',
     contactLabel: 'CONTACT US',
