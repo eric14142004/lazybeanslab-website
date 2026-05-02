@@ -1,4 +1,4 @@
-export const zh = {
+export const zhTw = {
   common: {
     getEstimate: '免費估價',
     aboutUs: '關於我們',
@@ -43,7 +43,6 @@ export const zh = {
     heroTitle: '我們規劃，您享受。',
     heroSub: '不需要技術背景。我們處理所有研究、相容性確認與安裝規劃。',
     getStartedLabel: '開始使用',
-    getEstimate: '免費估價 →',
     deliverableLabel: '交付成果',
     deliverable: '該買什麼。如何安裝。 →',
     deliveryModeLabel: '服務方式',

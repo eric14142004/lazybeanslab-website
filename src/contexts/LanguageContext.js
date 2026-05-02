@@ -1,8 +1,10 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { en } from '../translations/en';
-import { zh } from '../translations/zh';
+import { zhTw } from '../translations/zh-tw';
+import { zhCn } from '../translations/zh-cn';
 
-const translations = { en, zh };
+const translations = { en, 'zh-tw': zhTw, 'zh-cn': zhCn };
+const langCycle = ['en', 'zh-tw', 'zh-cn'];
 
 const LanguageContext = createContext({ lang: 'en', toggle: () => {}, t: en });
 
@@ -11,17 +13,17 @@ export function LanguageProvider({ children }) {
 
     useEffect(() => {
         const saved = typeof window !== 'undefined' ? localStorage.getItem('lang') : null;
-        if (saved === 'zh' || saved === 'en') setLang(saved);
+        if (saved && translations[saved]) setLang(saved);
     }, []);
 
     const toggle = () => {
-        const next = lang === 'en' ? 'zh' : 'en';
+        const next = langCycle[(langCycle.indexOf(lang) + 1) % langCycle.length];
         setLang(next);
         localStorage.setItem('lang', next);
     };
 
     return (
-        <LanguageContext.Provider value={{ lang, toggle, t: translations[lang] }}>
+        <LanguageContext.Provider value={{ lang, toggle, setLang: (l) => { setLang(l); localStorage.setItem('lang', l); }, t: translations[lang] }}>
             {children}
         </LanguageContext.Provider>
     );

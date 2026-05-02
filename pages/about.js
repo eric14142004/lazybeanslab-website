@@ -30,7 +30,7 @@ export default function About() {
                             <aside className="grid gap-3 sm:grid-cols-2 md:grid-cols-1">
                                 <Link href="/contact" className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px] transition hover:bg-white/20 block">
                                     <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">{t.about.getStartedLabel}</p>
-                                    <p className="mt-2 text-lg font-semibold text-white">{t.about.getEstimate}</p>
+                                    <p className="mt-2 text-lg font-semibold text-white">{t.common.getEstimate} →</p>
                                 </Link>
                                 <Link href="/services" className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-[1px] transition hover:bg-white/20 block">
                                     <p className="text-xs font-semibold tracking-[0.14em] text-stone-300">{t.about.deliverableLabel}</p>

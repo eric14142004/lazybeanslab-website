@@ -71,7 +71,7 @@ export default function Cases() {
                                 <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">{t.cases.heroTitle}</h1>
                                 <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">{t.cases.heroSub}</p>
                             </div>
-                            <Link href="/services" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
+                            <Link href="/services" className="rounded-md border border-stone-500 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
                                 {t.common.viewServices}
                             </Link>
                         </div>

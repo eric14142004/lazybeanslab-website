@@ -1,6 +1,6 @@
 export const en = {
   common: {
-    getEstimate: 'Get Free Cost Estimate',
+    getEstimate: 'Free Estimate',
     aboutUs: 'About Us',
     compareServices: 'Compare Services',
     viewServices: 'View Services',
@@ -43,7 +43,6 @@ export const en = {
     heroTitle: 'We plan it. You enjoy it.',
     heroSub: 'No tech background needed. We handle the research, compatibility checks, and setup plan.',
     getStartedLabel: 'GET STARTED',
-    getEstimate: 'Get Free Cost Estimate →',
     deliverableLabel: 'DELIVERABLE',
     deliverable: 'What to Buy. How to Set It Up. →',
     deliveryModeLabel: 'DELIVERY MODE',
