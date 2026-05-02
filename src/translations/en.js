@@ -33,7 +33,7 @@ export const en = {
     remotePlanning: 'REMOTE PLANNING',
     remoteDesc: 'Online planning and implementation roadmap.',
     casesTitle: 'Cases',
-    seeAllCases: 'See All Cases',
+    seeMoreCases: 'View More Cases',
     trustedBy: 'Trusted by local homeowners for dependable smart home setups.',
     ctaTitle: 'Ready to start?',
     ctaSub: 'Tell us your goal and budget.',

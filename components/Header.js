@@ -79,13 +79,12 @@ export default function Header() {
 
         </div>
 
-        <nav className="mx-auto flex max-w-6xl items-center gap-4 overflow-x-auto px-4 pb-3 text-sm font-semibold text-stone-200 md:hidden">
+        <nav className="mx-auto flex max-w-6xl items-center justify-center gap-4 overflow-x-auto px-4 pb-3 text-sm font-semibold text-stone-200 md:hidden">
           <Link href="/">{t.nav.home}</Link>
           <Link href="/services">{t.nav.services}</Link>
           <Link href="/devices">{t.nav.devices}</Link>
           {SITE_CONFIG.showProjects && <Link href="/cases">{t.nav.cases}</Link>}
           <Link href="/about">{t.nav.about}</Link>
-          <LangDropdown />
         </nav>
       </header>
   );

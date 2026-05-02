@@ -33,7 +33,7 @@ export const zhTw = {
     remotePlanning: '遠端規劃',
     remoteDesc: '線上規劃與實施路線圖。',
     casesTitle: '案例',
-    seeAllCases: '查看所有案例',
+    seeMoreCases: '查看更多案例',
     trustedBy: '深受本地屋主信賴的可靠智能家居服務。',
     ctaTitle: '準備好開始了嗎？',
     ctaSub: '告訴我們您的目標與預算。',

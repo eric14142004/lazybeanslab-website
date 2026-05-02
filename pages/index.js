@@ -130,7 +130,7 @@ export default function Home() {
                         <div className="flex items-end justify-between gap-6 flex-wrap">
                             <h2 className="display-font text-3xl text-stone-900">{t.home.casesTitle}</h2>
                             <Link href="/cases" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
-                                {t.home.seeAllCases}
+                                {t.home.seeMoreCases}
                             </Link>
                         </div>
                         <div className="mt-8 grid md:grid-cols-3 gap-6">

@@ -33,7 +33,7 @@ export const zhCn = {
     remotePlanning: '远程规划',
     remoteDesc: '线上规划与实施路线图。',
     casesTitle: '案例',
-    seeAllCases: '查看全部案例',
+    seeMoreCases: '查看更多案例',
     trustedBy: '深受本地业主信赖的可靠智能家居服务。',
     ctaTitle: '准备好开始了吗？',
     ctaSub: '告诉我们您的目标与预算。',
