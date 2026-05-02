@@ -2,7 +2,6 @@ export const en = {
   common: {
     getEstimate: 'Free Estimate',
     aboutUs: 'About Us',
-    compareServices: 'Compare Services',
     viewServices: 'View Services',
     watchYoutube: 'Watch More Smart Home Ideas',
   },

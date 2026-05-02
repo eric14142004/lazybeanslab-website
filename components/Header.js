@@ -5,8 +5,8 @@ import { useLanguage } from '../src/contexts/LanguageContext';
 
 const LANGS = [
   { code: 'en', label: 'EN' },
-  { code: 'zh-tw', label: '繁中' },
-  { code: 'zh-cn', label: '简中' },
+  { code: 'zh-tw', label: '繁' },
+  { code: 'zh-cn', label: '简' },
 ];
 
 function LangDropdown() {
@@ -85,7 +85,6 @@ export default function Header() {
           <Link href="/devices">{t.nav.devices}</Link>
           {SITE_CONFIG.showProjects && <Link href="/cases">{t.nav.cases}</Link>}
           <Link href="/about">{t.nav.about}</Link>
-          <Link href="/contact">{t.nav.contact}</Link>
           <LangDropdown />
         </nav>
       </header>

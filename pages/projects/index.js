@@ -38,7 +38,7 @@ export default function Projects() {
                                 {t.common.getEstimate}
                             </Link>
                             <Link href="/services" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
-                                {t.common.compareServices}
+                                {t.common.viewServices}
                             </Link>
                         </div>
                     </div>

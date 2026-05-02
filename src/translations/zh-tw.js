@@ -2,7 +2,6 @@ export const zhTw = {
   common: {
     getEstimate: '免費估價',
     aboutUs: '關於我們',
-    compareServices: '比較服務',
     viewServices: '查看服務',
     watchYoutube: '看更多智能家居靈感',
   },

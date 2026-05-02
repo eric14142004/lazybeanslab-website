@@ -2,7 +2,6 @@ export const zhCn = {
   common: {
     getEstimate: '免费报价',
     aboutUs: '关于我们',
-    compareServices: '对比服务',
     viewServices: '查看服务',
     watchYoutube: '看更多智能家居灵感',
   },

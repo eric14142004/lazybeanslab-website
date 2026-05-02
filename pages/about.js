@@ -39,7 +39,7 @@ export default function About() {
                                 </p>
                                 <div className="mt-6 flex flex-wrap gap-3">
                                     <Link href="/services" className="rounded-md border border-stone-400 px-6 py-3 text-sm font-semibold text-stone-800 transition hover:bg-stone-100">
-                                        {t.common.compareServices}
+                                        {t.common.viewServices}
                                     </Link>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@ export default function About() {
                                 {t.common.getEstimate}
                             </Link>
                             <Link href="/services" className="rounded-md border border-stone-500 px-7 py-3 text-sm font-semibold text-stone-900 transition hover:bg-white/70">
-                                {t.common.compareServices}
+                                {t.common.viewServices}
                             </Link>
                         </div>
                     </div>
