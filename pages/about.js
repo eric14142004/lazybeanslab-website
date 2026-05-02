@@ -22,7 +22,7 @@ export default function About() {
     }, []);
 
     return (
-        <>
+        <> 
             <Header />
             <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-8">
