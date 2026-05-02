@@ -13,6 +13,7 @@ export default function ServicesSection() {
     const directionRef = useRef('next');
     const highlightOnNextChangeRef = useRef(false);
     const swipeTouchStartX = useRef(null);
+    const mobileDeckTouchStartX = useRef(null);
     const { t } = useLanguage();
 
     const activeIndex = services.findIndex((service) => service.id === activeId);
@@ -70,35 +71,35 @@ export default function ServicesSection() {
         );
     };
 
-    const selectServiceByIndex = (index, direction) => {
+    const selectServiceByIndex = (index, direction, { guideToPlan = true } = {}) => {
         const service = services[index];
         if (!service) {
             return;
         }
 
         directionRef.current = direction;
-        highlightOnNextChangeRef.current = true;
+        highlightOnNextChangeRef.current = guideToPlan;
         setActiveId(service.id);
     };
 
-    const selectPrevious = () => {
+    const selectPrevious = (options) => {
         if (services.length === 0) {
             return;
         }
 
         const current = activeIndex === -1 ? 0 : activeIndex;
         const previousIndex = (current - 1 + services.length) % services.length;
-        selectServiceByIndex(previousIndex, 'prev');
+        selectServiceByIndex(previousIndex, 'prev', options);
     };
 
-    const selectNext = () => {
+    const selectNext = (options) => {
         if (services.length === 0) {
             return;
         }
 
         const current = activeIndex === -1 ? 0 : activeIndex;
         const nextIndex = (current + 1) % services.length;
-        selectServiceByIndex(nextIndex, 'next');
+        selectServiceByIndex(nextIndex, 'next', options);
     };
 
     useEffect(() => {
@@ -189,9 +190,9 @@ export default function ServicesSection() {
         }
     }, [activeId]);
 
-    const handleToggle = (serviceId) => {
+    const handleToggle = (serviceId, { allowCollapse = true, forceScroll = false } = {}) => {
         setActiveId((current) => {
-            const next = current === serviceId ? null : serviceId;
+            const next = allowCollapse && current === serviceId ? null : serviceId;
 
             if (current && next) {
                 const currentIdx = services.findIndex((service) => service.id === current);
@@ -201,6 +202,13 @@ export default function ServicesSection() {
 
             if (next) {
                 highlightOnNextChangeRef.current = true;
+                if (forceScroll) {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            scrollToPlan({ force: true });
+                        });
+                    });
+                }
             }
 
             return next;
@@ -217,15 +225,19 @@ export default function ServicesSection() {
     const rightHiddenCount = isStackExpanded ? 0 : hiddenCardCount;
     const leftStackAnchorIndex = leftHiddenCount;
     const rightStackAnchorIndex = Math.min(visibleCardCount - 1, Math.max(services.length - 1, 0));
+    const mobileLeftHiddenCount = Math.max(activeIndex, 0);
+    const mobileRightHiddenCount = Math.max(services.length - mobileLeftHiddenCount - 1, 0);
+    const mobileVisibleLeftLayers = Math.min(mobileLeftHiddenCount, 3);
+    const mobileVisibleRightLayers = Math.min(mobileRightHiddenCount, 3);
 
-    const renderServiceCardButton = (service) => {
+    const renderServiceCardButton = (service, options = {}) => {
         const isActive = activeId === service.id;
 
         return (
             <button
                 type="button"
                 aria-expanded={isActive}
-                onClick={() => handleToggle(service.id)}
+                onClick={() => handleToggle(service.id, options)}
                 className={`group flex h-full flex-col overflow-hidden rounded-2xl border text-left transition duration-300 ${isActive
                     ? 'border-stone-900 bg-white shadow-[0_16px_36px_-24px_rgba(24,28,33,0.9)]'
                     : 'border-stone-300 bg-white/95 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)] hover:-translate-y-0.5'
@@ -242,19 +254,13 @@ export default function ServicesSection() {
                 <div className="p-4 md:p-4.5">
                     <h3 className="min-h-[3rem] text-base font-semibold text-stone-900 md:min-h-[3.25rem] md:text-[1.05rem]">{t.services.serviceDetails[service.id]?.name}</h3>
                     <p className="mt-2 h-[3.25rem] overflow-hidden text-sm leading-5 text-stone-700 md:h-[3.5rem]">{t.services.serviceDetails[service.id]?.description}</p>
-                    <div
-                        aria-hidden="true"
-                        className={`mt-3 flex items-center justify-center py-1 transition ${isActive ? 'text-stone-700' : 'text-stone-400'}`}
-                    >
-                        <span className="text-sm leading-none">{isActive ? '↑' : '↓'}</span>
-                    </div>
                 </div>
             </button>
         );
     };
 
     return (
-        <section className="max-w-6xl mx-auto w-full px-6 py-4 md:py-6">
+        <section className="max-w-6xl mx-auto w-full px-6 pt-14 pb-4 md:pt-6 md:pb-6">
             <div className="mb-4 rounded-[1.5rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] px-5 py-4 shadow-[0_14px_40px_-34px_rgba(24,28,33,0.45)] md:px-6 md:py-4">
                 <div>
                     <h1 className="display-font text-[1.9rem] leading-tight text-stone-900 md:text-[2.2rem]">
@@ -266,12 +272,90 @@ export default function ServicesSection() {
                 </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 gap-7 md:hidden">
-                {services.map((service) => (
-                    <div key={`mobile-${service.id}`} data-service-id={service.id} className="flex flex-col">
-                        {renderServiceCardButton(service)}
-                    </div>
-                ))}
+            <div
+                className="mt-6 overflow-hidden md:hidden"
+                onTouchStart={(event) => {
+                    mobileDeckTouchStartX.current = event.touches[0].clientX;
+                }}
+                onTouchEnd={(event) => {
+                    if (mobileDeckTouchStartX.current === null) {
+                        return;
+                    }
+
+                    const deltaX = event.changedTouches[0].clientX - mobileDeckTouchStartX.current;
+                    mobileDeckTouchStartX.current = null;
+
+                    if (Math.abs(deltaX) < 36) {
+                        return;
+                    }
+
+                    if (deltaX < 0) {
+                        selectNext({ guideToPlan: false });
+                        return;
+                    }
+
+                    selectPrevious({ guideToPlan: false });
+                }}
+            >
+                <div className="relative w-full px-1 py-3 [touch-action:pan-y]">
+                    {mobileVisibleLeftLayers > 0 && (
+                        <div
+                            aria-hidden="true"
+                            className="pointer-events-none absolute inset-y-6 left-[7%] z-10 w-[10%]"
+                        >
+                            <div className="relative h-full w-full">
+                                {Array.from({ length: mobileVisibleLeftLayers }).map((_, stackIndex) => (
+                                    <div
+                                        key={`mobile-left-stack-layer-${stackIndex}`}
+                                        className="absolute inset-y-0 right-0 w-full rounded-2xl border border-stone-300 bg-white shadow-[0_14px_26px_-18px_rgba(24,28,33,0.55)]"
+                                        style={{
+                                            transform: `translateX(-${(stackIndex + 1) * 6}px)`,
+                                            opacity: Math.max(0.34, 0.88 - stackIndex * 0.16),
+                                            zIndex: mobileVisibleLeftLayers - stackIndex,
+                                        }}
+                                    />
+                                ))}
+                                <div className="absolute left-0 top-1">
+                                    <span className="rounded-full border border-stone-400 bg-white/95 px-2 py-1 text-[0.65rem] font-semibold text-stone-800 shadow-sm">
+                                        +{mobileLeftHiddenCount}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {mobileVisibleRightLayers > 0 && (
+                        <div
+                            aria-hidden="true"
+                            className="pointer-events-none absolute inset-y-6 right-[7%] z-10 w-[10%]"
+                        >
+                            <div className="relative h-full w-full">
+                                {Array.from({ length: mobileVisibleRightLayers }).map((_, stackIndex) => (
+                                    <div
+                                        key={`mobile-right-stack-layer-${stackIndex}`}
+                                        className="absolute inset-y-0 left-0 w-full rounded-2xl border border-stone-300 bg-white shadow-[0_14px_26px_-18px_rgba(24,28,33,0.55)]"
+                                        style={{
+                                            transform: `translateX(${(stackIndex + 1) * 6}px)`,
+                                            opacity: Math.max(0.34, 0.88 - stackIndex * 0.16),
+                                            zIndex: mobileVisibleRightLayers - stackIndex,
+                                        }}
+                                    />
+                                ))}
+                                <div className="absolute right-0 top-1">
+                                    <span className="rounded-full border border-stone-400 bg-white/95 px-2 py-1 text-[0.65rem] font-semibold text-stone-800 shadow-sm">
+                                        +{mobileRightHiddenCount}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {activeService && (
+                        <div className="relative z-20 mx-[10%] transition-transform duration-300">
+                            {renderServiceCardButton(activeService, { allowCollapse: false, forceScroll: true })}
+                        </div>
+                    )}
+                </div>
             </div>
 
             <div
