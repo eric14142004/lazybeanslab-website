@@ -1,11 +1,26 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { SITE_CONFIG } from '../src/config/site';
 import { useLanguage } from '../src/contexts/LanguageContext';
 
 export default function About() {
     const { t } = useLanguage();
+    const [latestVideoId, setLatestVideoId] = useState(null);
+
+    useEffect(() => {
+        const RSS_URL = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCqAmwbBTyUhrV3g_w7PW9Gg';
+        fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`)
+            .then(r => r.json())
+            .then(data => {
+                const link = data?.items?.[0]?.link ?? '';
+                const match = link.match(/v=([\w-]+)/);
+                if (match) setLatestVideoId(match[1]);
+            })
+            .catch(() => {});
+    }, []);
+
     return (
         <>
             <Header />
@@ -108,13 +123,26 @@ export default function About() {
                                     </a>
                                 </div>
                                 <div className="relative w-full overflow-hidden rounded-xl bg-black" style={{paddingBottom: '56.25%'}}>
-                                    <iframe
-                                        src="https://www.youtube.com/embed?listType=playlist&list=UUqAmwbBTyUhrV3g_w7PW9Gg&index=0"
-                                        title="Latest YouTube video"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                        className="absolute inset-0 h-full w-full border-0"
-                                    />
+                                    {latestVideoId ? (
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${latestVideoId}`}
+                                            title="Latest YouTube video"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen
+                                            referrerPolicy="strict-origin-when-cross-origin"
+                                            className="absolute inset-0 h-full w-full border-0"
+                                        />
+                                    ) : (
+                                        <a
+                                            href="https://www.youtube.com/@%E6%87%B6%E8%B1%86%E5%AD%90%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-stone-400 hover:text-white transition"
+                                        >
+                                            <svg className="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+                                            <span className="text-sm font-semibold">前往 YouTube 頻道</span>
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                             {/* Contact */}
