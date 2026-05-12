@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { homeServices } from '../data/services';
-import { cases } from '../data/cases';
+import { getCases } from '../data/cases';
 import ProjectCard from '../components/ProjectCard';
 import Link from 'next/link';
 import { SITE_CONFIG } from '../src/config/site';
@@ -11,7 +11,8 @@ const heroImage = '/images/home/hero.png';
 const secondaryImage = '/images/home/hero-secondary.png';
 
 export default function Home() {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
+    const cases = getCases(lang);
     const adPreviewImages = [1, 2];
     return (
         <>
