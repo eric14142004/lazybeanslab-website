@@ -57,7 +57,7 @@ export default function Header() {
 
           {/* left */}
           <Link href="/" className="flex">
-            <img src={`${SITE_CONFIG.basePath}/images/logo.png`} className="h-16 w-auto md:h-20" alt="Lazy Beans Lab logo" />
+            <img src={`${SITE_CONFIG.basePath}/images/logo/logo.png`} className="h-16 w-auto md:h-20" alt="Lazy Beans Smart Home logo" />
           </Link>
 
           {/* center */}

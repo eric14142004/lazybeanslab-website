@@ -19,6 +19,14 @@ export const en = {
     copy: '© 2026 Lazy Beans Smart Home',
     services: 'Design · Integration · Automation',
   },
+  social: {
+    wechatId: 'LazyBeansSmartHome',
+    wechatQrAlt: 'WeChat QR Code',
+    instagramHandle: '@lazysmarthome29',
+    instagramQrAlt: 'Instagram QR Code',
+    xiaohongshuIconAlt: 'Redbook',
+    xiaohongshuQrAlt: 'Redbook QR Code',
+  },
   home: {
     heroTitle: 'Simply life, Smart Living',
     heroSub: 'Design, compatibility checks, and clear budgets before you buy.',
@@ -73,7 +81,9 @@ export const en = {
     ctaSub: 'Send your goals and budget. We reply with scope, delivery mode, and estimated cost range.',
     directContact: 'Prefer to reach out directly?',
     watchYoutube: 'Watch More Setup Guides',
-    youtubeLabel: 'YOUTUBE',
+    channelsLabel: 'CHANNELS',
+    xiaohongshuChannel: 'Redbook: Lazy Beans | Smart Home',
+    youtubeChannel: 'YouTube Channel',
     youtubeDesc: 'Real installs, walkthroughs, and smart home tips — see how we work before you book.',
     contactLabel: 'CONTACT US',
   },
@@ -106,6 +116,7 @@ export const en = {
     formSuccess: 'Thanks. Your project brief was sent successfully. We will get back to you soon.',
     sendError: 'Unable to send right now. Please try again or use email/phone above.',
     directContact: 'Prefer to reach out directly?',
+    directContactSub: 'Pick your preferred channel below and we can start from there.',
   },
   cases: {
     heroTitle: 'Client Case',

@@ -240,10 +240,15 @@ export default function Contact() {
                 </section>
 
                 <section className="max-w-6xl mx-auto px-6 pt-2 pb-20">
-                    <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">
-                        <h2 className="display-font text-3xl text-stone-900 md:text-4xl">{t.contact.directContact}</h2>
-                        <div className="mt-7 flex flex-wrap justify-center gap-3">
-                            <SocialLinks variant="light" />
+                    <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_18px_48px_-34px_rgba(24,28,33,0.45)] md:p-10">
+                        <div className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-start">
+                            <div>
+                                <h2 className="display-font text-3xl text-stone-900 md:text-4xl">{t.contact.directContact}</h2>
+                                <p className="mt-3 max-w-xl text-stone-700 md:text-lg">{t.contact.directContactSub}</p>
+                            </div>
+                            <div className="flex flex-col gap-3">
+                                <SocialLinks variant="soft" />
+                            </div>
                         </div>
                     </div>
                 </section>

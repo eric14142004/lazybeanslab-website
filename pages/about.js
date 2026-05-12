@@ -9,6 +9,7 @@ import { useLanguage } from '../src/contexts/LanguageContext';
 export default function About() {
     const { t } = useLanguage();
     const [latestVideoId, setLatestVideoId] = useState(null);
+    const channelActionClass = 'group relative flex items-center gap-3 rounded-xl border border-stone-600 bg-white/5 px-5 py-3.5 text-sm font-semibold text-stone-200 transition hover:bg-white/10';
 
     useEffect(() => {
         const RSS_URL = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCqAmwbBTyUhrV3g_w7PW9Gg';
@@ -112,16 +113,7 @@ export default function About() {
                             {/* YouTube */}
                             <div className="flex flex-col gap-4 p-8 md:p-10 border-b border-stone-700 md:border-b-0 md:border-r">
                                 <div className="flex items-center justify-between">
-                                    <p className="text-xs font-semibold tracking-[0.18em] text-red-400">{t.about.youtubeLabel}</p>
-                                    <a
-                                        href="https://www.youtube.com/@%E6%87%B6%E8%B1%86%E5%AD%90%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-400 transition hover:text-red-400"
-                                    >
-                                        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-                                        {t.common.watchYoutube} →
-                                    </a>
+                                    <p className="text-xs font-semibold tracking-[0.18em] text-red-400">{t.about.channelsLabel}</p>
                                 </div>
                                 <div className="relative w-full overflow-hidden rounded-xl bg-black" style={{paddingBottom: '56.25%'}}>
                                     {latestVideoId ? (
@@ -141,9 +133,44 @@ export default function About() {
                                             className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-stone-400 hover:text-white transition"
                                         >
                                             <svg className="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-                                            <span className="text-sm font-semibold">前往 YouTube 頻道</span>
+                                            <span className="text-sm font-semibold">{t.about.youtubeChannel}</span>
                                         </a>
                                     )}
+                                </div>
+                                <div className="flex flex-col gap-3">
+                                    <a
+                                        href="https://www.youtube.com/@%E6%87%B6%E8%B1%86%E5%AD%90%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={channelActionClass}
+                                    >
+                                        <span className="text-red-400">
+                                            <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+                                        </span>
+                                        {t.about.youtubeChannel}
+                                    </a>
+                                    <a
+                                        href="https://xhslink.com/m/3XHGWCMRz51"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={channelActionClass}
+                                    >
+                                        <span className="text-red-400">
+                                            <img
+                                                src={`${SITE_CONFIG.basePath}/images/qr/redbook-logo.svg`}
+                                                alt={t.social.xiaohongshuIconAlt}
+                                                className="h-4 w-4 shrink-0 object-contain"
+                                            />
+                                        </span>
+                                        {t.about.xiaohongshuChannel}
+                                        <span className="pointer-events-none absolute top-full left-0 z-50 mt-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                                            <img
+                                                src={`${SITE_CONFIG.basePath}/images/qr/redbook-qr.png`}
+                                                alt="Xiaohongshu QR Code"
+                                                className="w-40 rounded-xl border border-stone-600 shadow-xl"
+                                            />
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                             {/* Contact */}
@@ -152,7 +179,7 @@ export default function About() {
                                     <p className="text-xs font-semibold tracking-[0.18em] text-stone-400">{t.about.contactLabel}</p>
                                 </div>
                                 <div className="flex flex-col gap-3">
-                                    <SocialLinks variant="dark" />
+                                    <SocialLinks variant="dark" excludeKeys={["xiaohongshu"]} />
                                 </div>
                             </div>
                         </div>

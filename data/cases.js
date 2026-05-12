@@ -1,27 +1,56 @@
 import { SITE_CONFIG } from "../src/config/site";
 
-export const cases = [
+function imagePath(caseId, fileName) {
+  return `${SITE_CONFIG.basePath}/images/cases/${caseId}/${fileName}`;
+}
+
+function resolveImage(entry, lang) {
+  if (typeof entry === "string") {
+    return { src: entry, zoomable: false };
+  }
+
+  return {
+    src: entry.byLang?.[lang] ?? entry.byLang?.en ?? entry.default,
+    zoomable: Boolean(entry.zoomable),
+  };
+}
+
+const cases = [
   {
     id: "apartment",
-    image: `${SITE_CONFIG.basePath}/images/cases/apartment/main.png`,
+    image: imagePath("apartment", "main.png"),
     images: [
-      `${SITE_CONFIG.basePath}/images/cases/apartment/main.png`,
+      imagePath("apartment", "main.png"),
     ],
   },
   {
     id: "shanghai-rental",
-    image: `${SITE_CONFIG.basePath}/images/cases/shanghai-rental/main.png`,
+    image: imagePath("shanghai-rental", "main.png"),
     images: [
-      `${SITE_CONFIG.basePath}/images/cases/shanghai-rental/main.png`,  
-      `${SITE_CONFIG.basePath}/images/cases/shanghai-rental/1.png`,
-      `${SITE_CONFIG.basePath}/images/cases/shanghai-rental/2.png`,
+      imagePath("shanghai-rental", "main.png"),
+      {
+        default: imagePath("shanghai-rental", "1-en.png"),
+        zoomable: true,
+        byLang: {
+          en: imagePath("shanghai-rental", "1-en.png"),
+          "zh-tw": imagePath("shanghai-rental", "1-zh-tw.png"),
+          "zh-cn": imagePath("shanghai-rental", "1-zh-cn.png"),
+        },
+      },
     ],
   },
   {
     id: "renovation",
-    image: `${SITE_CONFIG.basePath}/images/cases/renovation/main.png`,
+    image: imagePath("renovation", "main.png"),
     images: [
-      `${SITE_CONFIG.basePath}/images/cases/renovation/main.png`,
+      imagePath("renovation", "main.png"),
     ],
   },
 ];
+
+export function getCases(lang = "en") {
+  return cases.map((item) => ({
+    ...item,
+    images: item.images.map((entry) => resolveImage(entry, lang)),
+  }));
+}
