@@ -19,6 +19,15 @@ yarn.lock
 
 # next build output
 .next/
+out/
+
+# Coverage / cache outputs
+coverage/
+.turbo/
+.cache/
+
+# Deployment / local platform settings
+.vercel/
 
 # Jekyll build 產生的目錄
 _site/
@@ -40,5 +49,18 @@ _site/
 assets/temp/
 
 # Environment variables (local secrets)
+.env
+.env.*
 .env.local
 .env*.local
+!.env.example
+
+# AI agent instruction files (keep local)
+AGENTS.md
+CLAUDE.md
+EMAILJS_SETUP.md
+copilot-instructions.md
+*.instructions.md
+*.prompt.md
+*.agent.md
+**/SKILL.md
