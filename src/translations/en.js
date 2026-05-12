@@ -28,6 +28,8 @@ export const en = {
     instagramQrAlt: 'Instagram QR Code',
     xiaohongshuIconAlt: 'Redbook',
     xiaohongshuQrAlt: 'Redbook QR Code',
+    tiktokIconAlt: 'TikTok',
+    tiktokQrAlt: 'TikTok QR Code',
   },
   home: {
     heroTitle: 'Simply life, Smart Living',
@@ -84,9 +86,11 @@ export const en = {
     directContact: 'Prefer to reach out directly?',
     watchYoutube: 'Watch More Setup Guides',
     channelsLabel: 'CHANNELS',
-    xiaohongshuChannel: 'Redbook: Lazy Beans | Smart Home',
+    xiaohongshuChannel: 'Redbook',
+    tiktokChannel: 'TikTok',
     youtubeChannel: 'YouTube Channel',
     youtubeDesc: 'Real installs, walkthroughs, and smart home tips — see how we work before you book.',
+    tiktokDesc: 'Short clips, quick demos, and smart home ideas from Lazy Beans Smart Home.',
     contactLabel: 'CONTACT US',
   },
   contact: {

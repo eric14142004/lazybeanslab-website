@@ -28,6 +28,8 @@ export const zhCn = {
     instagramQrAlt: 'Instagram QR Code',
     xiaohongshuIconAlt: '小红书',
     xiaohongshuQrAlt: '小红书 QR Code',
+    tiktokIconAlt: 'TikTok',
+    tiktokQrAlt: 'TikTok QR Code',
   },
   home: {
     heroTitle: 'Simply life, Smart Living',
@@ -85,8 +87,10 @@ export const zhCn = {
     watchYoutube: '看更多智能家居灵感',
     channelsLabel: '频道',
     xiaohongshuChannel: '懒豆子｜智能家居',
-    youtubeChannel: 'YouTube 频道',
+    tiktokChannel: '懒豆子智能家居',
+    youtubeChannel: '懒豆子智能家居',
     youtubeDesc: '真实安装视频、讲解与智能家居小贴士——预约前先看看我们怎么做。',
+    tiktokDesc: '短视频、快速演示与懒豆子智能家居灵感。',
     contactLabel: '联系我们',
   },
   contact: {
