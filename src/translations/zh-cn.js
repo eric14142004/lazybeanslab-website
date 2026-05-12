@@ -3,7 +3,7 @@ export const zhCn = {
     getEstimate: '免费报价',
     aboutUs: '关于我们',
     viewServices: '查看服务',
-    watchYoutube: '看更多智能家居灵感',
+    watchYoutube: '更多智能家居灵感',
   },
   nav: {
     home: '首页',

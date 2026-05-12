@@ -3,7 +3,7 @@ export const en = {
     getEstimate: 'Free Estimate',
     aboutUs: 'About Us',
     viewServices: 'View Services',
-    watchYoutube: 'Watch More Smart Home Ideas',
+    watchYoutube: 'More Smart Home Ideas',
   },
   nav: {
     home: 'Home',

@@ -3,7 +3,7 @@ export const zhTw = {
     getEstimate: '免費估價',
     aboutUs: '關於我們',
     viewServices: '查看服務',
-    watchYoutube: '看更多智能家居靈感',
+    watchYoutube: '更多智能家居靈感',
   },
   nav: {
     home: '首頁',
