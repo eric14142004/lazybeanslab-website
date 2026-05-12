@@ -4,6 +4,8 @@ export const zhTw = {
     aboutUs: '關於我們',
     viewServices: '查看服務',
     watchYoutube: '更多智能家居靈感',
+    siteTitle: '懶豆子智能家居',
+    siteDescription: '懶豆子智能家居提供智能家居顧問、安裝與自動化整合服務。',
   },
   nav: {
     home: '首頁',

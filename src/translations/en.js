@@ -4,6 +4,8 @@ export const en = {
     aboutUs: 'About Us',
     viewServices: 'View Services',
     watchYoutube: 'More Smart Home Ideas',
+    siteTitle: 'Lazy Beans Smart Home',
+    siteDescription: 'Lazy Beans Smart Home - smart home consulting, setup, and automation services.',
   },
   nav: {
     home: 'Home',

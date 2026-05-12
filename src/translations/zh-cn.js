@@ -4,6 +4,8 @@ export const zhCn = {
     aboutUs: '关于我们',
     viewServices: '查看服务',
     watchYoutube: '更多智能家居灵感',
+    siteTitle: '懒豆子智能家居',
+    siteDescription: '懒豆子智能家居提供智能家居顾问、安装与自动化整合服务。',
   },
   nav: {
     home: '首页',

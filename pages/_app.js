@@ -2,7 +2,21 @@ import '../styles/globals.css';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { LanguageProvider } from '../src/contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from '../src/contexts/LanguageContext';
+
+function AppHead() {
+    const { t } = useLanguage();
+    const title = t?.common?.siteTitle || 'Lazy Beans Smart Home';
+    const description = t?.common?.siteDescription || 'Lazy Beans Smart Home - smart home consulting, setup, and automation services.';
+
+    return (
+        <Head>
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+    );
+}
 
 export default function App({ Component, pageProps }) {
     const router = useRouter();
@@ -47,9 +61,7 @@ export default function App({ Component, pageProps }) {
 
     return (
         <LanguageProvider>
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Head>
+            <AppHead />
             <Component {...pageProps} />
         </LanguageProvider>
     );
