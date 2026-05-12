@@ -8,13 +8,40 @@ const langCycle = ['en', 'zh-tw', 'zh-cn'];
 
 const LanguageContext = createContext({ lang: 'en', toggle: () => {}, t: en });
 
+function detectBrowserLanguage() {
+    if (typeof navigator === 'undefined') {
+        return 'en';
+    }
+
+    const primary = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+    const normalized = primary.toLowerCase();
+
+    if (normalized.startsWith('zh-tw') || normalized.startsWith('zh-hk') || normalized.startsWith('zh-mo') || normalized.includes('hant')) {
+        return 'zh-tw';
+    }
+
+    if (normalized.startsWith('zh')) {
+        return 'zh-cn';
+    }
+
+    return 'en';
+}
+
 export function LanguageProvider({ children }) {
     const [lang, setLang] = useState('en');
 
     useEffect(() => {
         const saved = typeof window !== 'undefined' ? localStorage.getItem('lang') : null;
+        if (saved && translations[saved]) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setLang(saved);
+            return;
+        }
+
+        const detected = detectBrowserLanguage();
         // eslint-disable-next-line react-hooks/set-state-in-effect
-        if (saved && translations[saved]) setLang(saved);
+        setLang(detected);
+        localStorage.setItem('lang', detected);
     }, []);
 
     const toggle = () => {
