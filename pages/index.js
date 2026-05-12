@@ -12,6 +12,7 @@ const secondaryImage = '/images/home/hero-secondary.png';
 
 export default function Home() {
     const { t } = useLanguage();
+    const adPreviewImages = [1, 2];
     return (
         <>
             <Header />
@@ -138,6 +139,34 @@ export default function Home() {
                         </div>
                     </section>
                 )}
+
+                {/* Device showcase gallery */}
+                <section className="max-w-6xl mx-auto px-6 py-10">
+                    <div className="flex items-end justify-between gap-6 flex-wrap">
+                        <div>
+                            <h2 className="display-font text-3xl text-stone-900">{t.home.devicesTitle}</h2>
+                        </div>
+                        <Link href="/gallery" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
+                            {t.home.viewProtaiPosters}
+                        </Link>
+                    </div>
+
+                    <div className="mt-6 grid gap-5 md:grid-cols-2">
+                        {adPreviewImages.map((n) => (
+                            <article key={`home-preview-ad-${n}`} className="group overflow-hidden rounded-2xl border border-stone-300 bg-white/95 shadow-[0_14px_30px_-24px_rgba(30,35,40,0.8)] transition hover:-translate-y-0.5">
+                                <div className="aspect-[543/724] overflow-hidden border-b border-stone-200 bg-stone-100 p-3">
+                                    <img
+                                        src={`${SITE_CONFIG.basePath}/images/gallery/posters/${n}.png`}
+                                        alt={`Smart home poster preview ${n}`}
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.02]"
+                                    />
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </section>
 
                 <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
                     <div className="rounded-3xl border border-stone-300 bg-[#efe4d2] p-8 text-center md:p-10">

@@ -65,6 +65,7 @@ export default function Header() {
             <Link href="/">{t.nav.home}</Link>
             <Link href="/services">{t.nav.services}</Link>
             <Link href="/devices">{t.nav.devices}</Link>
+            <Link href="/gallery">{t.nav.gallery}</Link>
             {SITE_CONFIG.showProjects && <Link href="/cases">{t.nav.cases}</Link>}
             <Link href="/about">{t.nav.about}</Link>
           </nav>
@@ -83,6 +84,7 @@ export default function Header() {
           <Link href="/">{t.nav.home}</Link>
           <Link href="/services">{t.nav.services}</Link>
           <Link href="/devices">{t.nav.devices}</Link>
+          <Link href="/gallery">{t.nav.gallery}</Link>
           {SITE_CONFIG.showProjects && <Link href="/cases">{t.nav.cases}</Link>}
           <Link href="/about">{t.nav.about}</Link>
         </nav>
