@@ -2,7 +2,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { getCases } from '../data/cases';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../src/contexts/LanguageContext';
 
 const caseColor = {
@@ -19,22 +19,33 @@ const colorMap = {
 
 function CaseCard({ project }) {
     const [mainIdx, setMainIdx] = useState(0);
-    const [zoomSrc, setZoomSrc] = useState(null);
+    const [zoomIdx, setZoomIdx] = useState(null);
     const { t } = useLanguage();
     const currentImage = project.images[mainIdx];
+    const zoomSrc = zoomIdx === null ? null : project.images[zoomIdx]?.src ?? null;
     const canZoom = Boolean(currentImage?.zoomable);
     const color = caseColor[project.id];
     const colors = colorMap[color];
     const detail = t.cases.caseDetails[project.id];
 
+    useEffect(() => {
+        if (zoomIdx === null) {
+            return;
+        }
+
+        if (!project.images[zoomIdx]) {
+            setZoomIdx(null);
+        }
+    }, [project.images, zoomIdx]);
+
     const openZoom = () => {
         if (!canZoom) {
             return;
         }
-        setZoomSrc(currentImage.src);
+        setZoomIdx(mainIdx);
     };
 
-    const closeZoom = () => setZoomSrc(null);
+    const closeZoom = () => setZoomIdx(null);
     return (
         <div className="rounded-2xl border border-stone-300 bg-white p-6 flex flex-col shadow-[0_10px_24px_-20px_rgba(30,35,40,0.10)]">
             <button

@@ -29,7 +29,7 @@ export const zhTw = {
   },
   home: {
     heroTitle: 'Simply life, Smart Living',
-    heroSub: '購買前先做設計、相容性確認與清晰預算。',
+    heroSub: '先規劃、查相容、抓預算，再安心購買。',
     servicesTitle: '服務',
     servicesSub: '從系統設計到安裝、自動化與長期支援。',
     viewAll: '查看全部',

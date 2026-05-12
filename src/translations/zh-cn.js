@@ -29,7 +29,7 @@ export const zhCn = {
   },
   home: {
     heroTitle: 'Simply life, Smart Living',
-    heroSub: '购买前先完成方案设计、兼容性核查与预算规划。',
+    heroSub: '先设计、查兼容、算预算，再放心购买。',
     servicesTitle: '服务',
     servicesSub: '从系统设计到安装、自动化与长期维护。',
     viewAll: '查看全部',

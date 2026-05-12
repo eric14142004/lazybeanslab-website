@@ -8,7 +8,6 @@ import { SITE_CONFIG } from '../src/config/site';
 import { useLanguage } from '../src/contexts/LanguageContext';
 
 const heroImage = '/images/home/hero.png';
-const secondaryImage = '/images/home/hero-secondary.png';
 
 export default function Home() {
     const { t, lang } = useLanguage();
@@ -20,24 +19,27 @@ export default function Home() {
 
             <main className="site-bg pt-28 md:pt-24">
                 <section className="max-w-6xl mx-auto px-6 pt-14 pb-12">
-                    <div className="rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_18px_48px_-34px_rgba(24,28,33,0.45)] md:p-10">
-                        <div className="grid items-center gap-6 md:gap-12 md:grid-cols-[1fr_1.3fr]">
-                            <div>
-                                <h1 className="display-font text-4xl leading-tight text-stone-900 md:text-5xl md:whitespace-nowrap">
+                    <div className="relative overflow-hidden rounded-[2rem] border border-stone-300/70 bg-[linear-gradient(140deg,#fffdf8_0%,#f4ecdd_100%)] p-6 shadow-[0_18px_48px_-34px_rgba(24,28,33,0.45)] md:p-10">
+                        <div className="pointer-events-none absolute -left-14 -top-20 h-56 w-56 rounded-full bg-[#f2dfbf]/55 blur-2xl" />
+                        <div className="pointer-events-none absolute -bottom-28 right-8 h-64 w-64 rounded-full bg-[#e6d6bb]/45 blur-2xl" />
+
+                        <div className="relative grid items-center gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-8">
+                            <div className="w-full max-w-[33rem]">
+                                <h1 className="display-font text-3xl leading-[0.98] text-stone-900 sm:text-4xl md:text-5xl md:whitespace-nowrap">
                                     {t.home.heroTitle}
                                 </h1>
-                                <p className="mt-4 max-w-3xl text-stone-700 md:text-lg">
+                                <p className="mt-4 max-w-3xl text-stone-700 md:text-lg md:whitespace-nowrap md:overflow-hidden md:text-ellipsis">
                                     {t.home.heroSub}
                                 </p>
-                                <div className="mt-6 flex flex-wrap gap-3">
-                                    <Link href="/contact" className="rounded-md bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
+                                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                                    <Link href="/contact" className="inline-flex items-center justify-center rounded-md bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-700">
                                         {t.common.getEstimate}
                                     </Link>
                                     <a
                                         href="https://www.youtube.com/@%E6%87%B6%E8%B1%86%E5%AD%90%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 rounded-md border border-stone-400 px-6 py-3 text-sm font-semibold text-stone-800 transition hover:bg-white/70"
+                                        className="inline-flex items-center justify-center gap-2 rounded-md border border-stone-400 bg-white/60 px-6 py-3 text-sm font-semibold text-stone-800 transition hover:bg-white/85"
                                     >
                                         <svg className="h-4 w-4 text-red-600 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
                                         {t.common.watchYoutube}
@@ -45,22 +47,13 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            <div className="relative pb-10 md:pb-12">
+                            <div className="flex w-full justify-center md:justify-end">
                                 <img
                                     src={`${SITE_CONFIG.basePath}${heroImage}`}
                                     alt="Smart home consulting"
                                     decoding="async"
-                                    className="w-full scale-110 object-contain mix-blend-multiply"
+                                    className="block w-full max-w-[18rem] shrink-0 rounded-[1.35rem] border border-stone-300/80 shadow-[0_22px_40px_-28px_rgba(24,28,33,0.32)] sm:max-w-[24rem] md:max-w-[44rem]"
                                 />
-                                <div className="absolute bottom-4 -left-14 hidden w-44 md:block">
-                                    <img
-                                        src={`${SITE_CONFIG.basePath}${secondaryImage}`}
-                                        alt="Smart home installation"
-                                        loading="lazy"
-                                        decoding="async"
-                                        className="w-full object-contain drop-shadow-lg"
-                                    />
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -70,7 +63,6 @@ export default function Home() {
                     <div className="flex items-end justify-between gap-6 flex-wrap">
                         <div>
                             <h2 className="display-font text-3xl text-stone-900">{t.home.servicesTitle}</h2>
-                            <p className="mt-2 text-sm text-stone-700">{t.home.servicesSub}</p>
                         </div>
                         <Link href="/services" className="text-sm font-semibold tracking-wide text-stone-700 underline-offset-4 hover:underline">
                             {t.home.viewAll}
